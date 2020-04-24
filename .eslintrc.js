@@ -13,6 +13,8 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    'vue/singleline-html-element-content-newline': 0
+    'vue/singleline-html-element-content-newline': 0,
+    'semi': 0,
+    'import/no-webpack-loader-syntax': 0
   }
 }

@@ -36,6 +36,17 @@ export default {
     Nav
   },
 
+  mounted() {
+    const controller = new this.$scrollmagic.Controller()
+    const scene = new this.$scrollmagic.Scene({
+      offset: 100, // start scene after scrolling for 100px
+      duration: 400, // pin the element for 400px of scrolling
+      debug: true
+    }).addIndicators()
+
+    controller.addScene(scene);
+  },
+
   methods: {
     moveCircle(e) {
       TweenLite.to(this.$refs.cursor, 0.3, {
