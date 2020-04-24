@@ -15,6 +15,7 @@ module.exports = {
   rules: {
     'vue/singleline-html-element-content-newline': 0,
     'semi': 0,
-    'import/no-webpack-loader-syntax': 0
+    'import/no-webpack-loader-syntax': 0,
+    'space-before-function-paren': 0
   }
 }
