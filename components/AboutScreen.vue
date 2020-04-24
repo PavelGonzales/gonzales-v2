@@ -1,7 +1,9 @@
 <template>
   <div ref="about-screen" class="scrollmagic-wrapper">
-    <div class="about-screen container">
-      <p ref="text" class="text">Since 2015, I have been engaged in front-end development and managed to participate in many projects and work in several large companies.</p>
+    <div class="position-fixed">
+      <div class="about-screen container">
+        <p ref="text" class="text">Since 2015, I have been engaged in front-end development and managed to participate in many projects and work in several large companies.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -37,24 +39,27 @@ export default {
 
     new this.$scrollmagic.Scene({
       triggerElement: this.$refs['about-screen'],
-      offset: -500,
+      offset: 0,
       duration: 600
     })
       .setPin(this.$refs['about-screen'])
       .on('progress', (e) => {
         tlText.progress(e.progress)
       })
-      .addIndicators({ name: 'about screen' })
+      // .addIndicators({ name: 'about screen' })
       .addTo(this.controller)
   }
 }
 </script>
 
 <style scoped>
+  .scrollmagic-wrapper {
+    min-height: 600px;
+  }
   .about-screen {
     display: flex;
     align-items: center;
-    margin-top: -50vw;
+    height: 100%;
   }
 
   .text {

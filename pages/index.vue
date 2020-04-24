@@ -1,5 +1,6 @@
 <template>
-  <div class="app">
+  <div :class="['app', {'hidden': !isLoaded}]">
+    <div id="spacer" class="spacer" />
     <div ref="cursor" class="cursor" />
     <Nav />
     <MainScreen />
@@ -19,7 +20,16 @@ import ByeScreen from '@/components/ByeScreen.vue'
 import Nav from '@/components/Nav.vue'
 
 export default {
+  data() {
+    return {
+      isLoaded: false
+    }
+  },
+
   mounted () {
+    setTimeout(() => {
+      this.isLoaded = true;
+    }, 200);
     TweenLite.set(this.$refs.cursor, {
       xPercent: -50,
       yPercent: -50
@@ -54,6 +64,25 @@ export default {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  width: 100%;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.position-abolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.spacer {
+  height: 400vh;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
 }
 

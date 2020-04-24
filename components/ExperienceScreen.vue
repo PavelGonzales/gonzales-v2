@@ -1,29 +1,31 @@
 <template>
-  <div ref="experience-screen" class="scrollmagic-wrapper">
-    <div class="experience-screen container">
-      <div class="mock-macbook">
-        <img class="mock-macbook-job main" src="./../assets/jobs/gonzales-macbook.png" alt="">
+  <div id="experience-screen" ref="experience-screen" class="scrollmagic-wrapper">
+    <div class="position-fixed">
+      <div class="experience-screen container">
+        <div ref="frame-macbook" class="mock-macbook">
+          <img class="mock-macbook-job main" src="./../assets/jobs/gonzales-macbook.png" alt="">
 
-        <img ref="macbook-ozon-job" class="mock-macbook-job" src="./../assets/jobs/ozon-macbook.png" alt="">
-        <img ref="macbook-rabotaru-job" class="mock-macbook-job" src="./../assets/jobs/rabotaru-macbook.png" alt="">
-        <img ref="macbook-ecn-job" class="mock-macbook-job" src="./../assets/jobs/ecn-macbook.png" alt="">
-        <img ref="macbook-breffi-job" class="mock-macbook-job" src="./../assets/jobs/breffi-macbook.png" alt="">
-        <img ref="macbook-bezpravok-job" class="mock-macbook-job" src="./../assets/jobs/bezpravok-macbook.png" alt="">
-        <img ref="macbook-alfaensurance-job" class="mock-macbook-job" src="./../assets/jobs/alfaensurance-macbook.jpg" alt="">
+          <img ref="macbook-ozon-job" class="mock-macbook-job" src="./../assets/jobs/ozon-macbook.png" alt="">
+          <img ref="macbook-rabotaru-job" class="mock-macbook-job" src="./../assets/jobs/rabotaru-macbook.png" alt="">
+          <img ref="macbook-ecn-job" class="mock-macbook-job" src="./../assets/jobs/ecn-macbook.png" alt="">
+          <img ref="macbook-breffi-job" class="mock-macbook-job" src="./../assets/jobs/breffi-macbook.png" alt="">
+          <img ref="macbook-bezpravok-job" class="mock-macbook-job" src="./../assets/jobs/bezpravok-macbook.png" alt="">
+          <img ref="macbook-alfaensurance-job" class="mock-macbook-job" src="./../assets/jobs/alfaensurance-macbook.jpg" alt="">
 
-        <img class="mock-img macbook" src="./../assets/mock_macbook.png" alt="">
-      </div>
+          <img class="mock-img macbook" src="./../assets/mock_macbook.png" alt="">
+        </div>
 
-      <div class="mock-iphone">
-        <img class="mock-iphone-job main" src="./../assets/jobs/gonzales-iphone.jpeg" alt="">
+        <div ref="frame-iphone" class="mock-iphone">
+          <img class="mock-iphone-job main" src="./../assets/jobs/gonzales-iphone.jpeg" alt="">
 
-        <img ref="iphone-ozon-job" class="mock-iphone-job" src="./../assets/jobs/ozon-iphone.jpg" alt="">
-        <img ref="iphone-rabotaru-job" class="mock-iphone-job" src="./../assets/jobs/rabotaru-iphone.jpeg" alt="">
-        <img ref="iphone-ecn-job" class="mock-iphone-job" src="./../assets/jobs/ecn-iphone.jpeg" alt="">
-        <img ref="iphone-breffi-job" class="mock-iphone-job" src="./../assets/jobs/breffi-iphone.jpeg" alt="">
-        <img ref="iphone-bezpravok-job" class="mock-iphone-job" src="./../assets/jobs/bezpravok-iphone.jpeg" alt="">
+          <img ref="iphone-ozon-job" class="mock-iphone-job" src="./../assets/jobs/ozon-iphone.jpg" alt="">
+          <img ref="iphone-rabotaru-job" class="mock-iphone-job" src="./../assets/jobs/rabotaru-iphone.jpeg" alt="">
+          <img ref="iphone-ecn-job" class="mock-iphone-job" src="./../assets/jobs/ecn-iphone.jpeg" alt="">
+          <img ref="iphone-breffi-job" class="mock-iphone-job" src="./../assets/jobs/breffi-iphone.jpeg" alt="">
+          <img ref="iphone-bezpravok-job" class="mock-iphone-job" src="./../assets/jobs/bezpravok-iphone.jpeg" alt="">
 
-        <img class="mock-img" src="./../assets/mock_iphone.png" alt="">
+          <img class="mock-img" src="./../assets/mock_iphone.png" alt="">
+        </div>
       </div>
     </div>
   </div>
@@ -51,13 +53,29 @@ export default {
 
     const jobsArray = ['ozon', 'rabotaru', 'ecn', 'breffi', 'bezpravok'];
     const duration = 380;
-    let accOffset = window.innerHeight / 3;
+    let accOffset = window.innerHeight / 3 - 600;
 
     jobsArray.forEach((name, index) => {
-      const offset = 
       this[`scene${index + 1}`] = this.createScene({ pin: 'experience-screen', name, offset: accOffset })
       accOffset += duration
     })
+
+    const tlFrames = new TimelineMax({ paused: true });
+    tlFrames
+      .from(this.$refs['frame-macbook'], 1, { x: -100, opacity: 0 }, 0)
+      .from(this.$refs['frame-iphone'], 1, { x: 100, opacity: 0 }, 0)
+
+    new this.$scrollmagic.Scene({
+      triggerElement: this.$refs['experience-screen'],
+      offset: -600,
+      duration: 300
+    })
+      .setPin(this.$refs['experience-screen'])
+      .on('progress', (e) => {
+        tlFrames.progress(e.progress)
+      })
+      // .addIndicators({ name: 'experience' })
+      .addTo(this.controller)
   },
 
   methods: {
@@ -68,6 +86,9 @@ export default {
       duration: 380
     })
       .setPin(this.$refs[pin])
+      .on('tlFrames', (e) => {
+        tlTitleLeave.progress(e.progress)
+      })
       .on('enter', (e) => {
         TweenMax.to(this.$refs[`macbook-${name}-job`], 0.5, { opacity: 1 })
         TweenMax.to(this.$refs[`iphone-${name}-job`], 0.5, { opacity: 1 })
@@ -89,7 +110,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 150px 16px;
+    height: 100%;
   }
 
   .mock-macbook {

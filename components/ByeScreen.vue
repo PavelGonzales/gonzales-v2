@@ -1,30 +1,76 @@
 <template>
-  <footer class="about-screen container">
-    <p class="contact-text">Contact me</p>
-    <div class="copyright">
-      <span class="copyright__inner">
-        {{ new Date().getFullYear() }} &copy; Pavel Gonzales
-      </span>
+  <div ref="bye-screen" class="scrollmagic-wrapper">
+    <div class="position-fixed">
+      <footer ref="footer" class="bye-screen container">
+        <p class="contact-text">Contact me</p>
+        <div class="copyright">
+          <span class="copyright__inner">
+            {{ new Date().getFullYear() }} &copy; Pavel Gonzales
+          </span>
+        </div>
+        <p class="bye-text">Chiao!</p>
+      </footer>
     </div>
-    <p class="bye-text">Chiao!</p>
-  </footer>
+  </div>
 </template>
 
 <script>
+import { TimelineMax } from 'gsap';
+
 export default {
-  name: 'ByeScreen'
+  name: 'ByeScreen',
+
+  data() {
+    return {
+      controller: null,
+      scene1: null
+    }
+  },
+
+  mounted() {
+    const tlFooter = new TimelineMax({ paused: true });
+    const experienceScreen = document.querySelector('#experience-screen');
+
+    tlFooter
+      .from(this.$refs.footer, 1, { opacity: 0, y: 300 }, 0)
+      .to(experienceScreen, 1, { opacity: 0, y: -300 }, 0)
+
+    this.controller = new this.$scrollmagic.Controller();
+
+    new this.$scrollmagic.Scene({
+      triggerElement: this.$refs['bye-screen'],
+      offset: -(window.innerHeight / 2),
+      duration: 300
+    })
+      .setPin(this.$refs['bye-screen'])
+      .on('progress', (e) => {
+        tlFooter.progress(e.progress)
+      })
+      // .addIndicators({ name: 'bye screen' })
+      .addTo(this.controller)
+  }
 }
 </script>
 
 <style scoped>
-  .about-screen {
+  .scrollmagic-wrapper {
+    min-height: 300px;
+  }
+
+  .bye-screen {
     padding: 150px 16px 0;
     color: #fff;
     text-align: center;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   .copyright {
     font-weight: 300;
+    width: 100%;
     color: #ddd;
     position: relative;
     display: flex;

@@ -1,10 +1,12 @@
 <template>
-  <div ref="main-screen" class="scrollmagic-wrapper">
-    <div class="main-screen container">
-      <h1 ref="title" class="title">
-        Hi. I'm Pavel, a Moscow based <nobr>front-end</nobr> developer and team lead
-        <img ref="emoji" class="emoji" src="~/assets/technologist-emoji.png" alt="">
-      </h1>
+  <div ref="main-screen" class="scrollmagic-wrapper" :style="stylesWrapper">
+    <div class="position-fixed">
+      <div class="main-screen container">
+        <h1 ref="title" class="title">
+          Hi. I'm Pavel, a Moscow based <nobr>front-end</nobr> developer and team lead
+          <img ref="emoji" class="emoji" src="~/assets/technologist-emoji.png" alt="">
+        </h1>
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +21,18 @@ export default {
     return {
       controller: null,
       scene1: null
+    }
+  },
+
+  computed: {
+    stylesWrapper() {
+      if (process.browser) {
+        return {
+          'min-height': `${window.innerHeight / 2}px`
+        }
+      } else {
+        return {}
+      }
     }
   },
 
@@ -54,15 +68,19 @@ export default {
       .on('progress', (e) => {
         tlTitleLeave.progress(e.progress)
       })
-      .addIndicators({ name: 'title' })
+      // .addIndicators({ name: 'title' })
       .addTo(this.controller)
   }
 }
 </script>
 
 <style scoped>
+  .scrollmagic-wrapper {
+    min-height: 300px;
+  }
+
   .main-screen {
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     color: #fff;
