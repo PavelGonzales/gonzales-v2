@@ -42,7 +42,7 @@ export default {
 
   .nav-item {
     padding: 0 6px;
-    margin: 0 6px;
+    margin: 0 28px;
     background-color: var(--background-color);
     position: relative;
   }
@@ -52,23 +52,9 @@ export default {
     text-decoration: none;
   }
 
-  @media (max-width: 1280px) {
-    .about-screen {
-      max-width: 960px;
-    }
-
-    .text {
-      font-size: 54px;
-    }
-  }
-
-  @media (max-width: 960px) {
-    .about-screen {
-      max-width: 640px;
-    }
-
-    .text {
-      font-size: 36px;
+  @media (max-width: 640px) {
+    .nav-item {
+      margin: 0 12px;
     }
   }
 </style>
