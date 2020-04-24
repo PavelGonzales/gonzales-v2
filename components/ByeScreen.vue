@@ -1,5 +1,5 @@
 <template>
-  <footer class="about-screen">
+  <footer class="about-screen container">
     <p class="contact-text">Contact me</p>
     <div class="copyright">
       <span class="copyright__inner">
@@ -18,10 +18,6 @@ export default {
 
 <style scoped>
   .about-screen {
-    max-width: 1280px;
-    width: 100%;
-    margin: auto;
-    box-sizing: border-box;
     padding: 150px 16px 0;
     color: #fff;
     text-align: center;
@@ -46,7 +42,7 @@ export default {
   }
 
   .copyright__inner {
-    background-color: #1b1b1b;
+    background-color: var(--background-color);
     position: relative;
     padding: 0 6px;
   }
@@ -65,10 +61,6 @@ export default {
   }
 
   @media (max-width: 1280px) {
-    .about-screen {
-      max-width: 960px;
-    }
-
     .text {
       font-size: 54px;
     }
@@ -83,10 +75,6 @@ export default {
   }
 
   @media (max-width: 960px) {
-    .about-screen {
-      max-width: 640px;
-    }
-
     .text {
       font-size: 36px;
     }

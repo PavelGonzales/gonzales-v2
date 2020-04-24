@@ -1,6 +1,7 @@
 <template>
   <div class="app">
-    <div class="cursor" ref="cursor" />
+    <div ref="cursor" class="cursor" />
+    <Nav />
     <MainScreen />
     <AboutScreen />
     <ExperienceScreen />
@@ -15,6 +16,7 @@ import MainScreen from '@/components/MainScreen.vue'
 import AboutScreen from '@/components/AboutScreen.vue'
 import ExperienceScreen from '@/components/ExperienceScreen.vue'
 import ByeScreen from '@/components/ByeScreen.vue'
+import Nav from '@/components/Nav.vue'
 
 export default {
   mounted () {
@@ -30,7 +32,8 @@ export default {
     MainScreen,
     AboutScreen,
     ExperienceScreen,
-    ByeScreen
+    ByeScreen,
+    Nav
   },
 
   methods: {
@@ -44,15 +47,6 @@ export default {
 }
 </script>
 <style>
-body {
-  font-family: 'Roboto', sans-serif;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  background-color: #1b1b1b;
-}
-
 .app {
   display: flex;
   flex-wrap: wrap;

@@ -1,5 +1,5 @@
 <template>
-  <div class="experience-screen">
+  <div class="experience-screen container">
     <div class="mock-macbook">
       <img class="mock-img macbook" src="./../assets/mock_macbook.png" alt="">
       <img class="ozon-macbook" src="./../assets/jobs/ozon-macbook.png" alt="">
@@ -65,13 +65,9 @@ export default {
 
 <style scoped>
   .experience-screen {
-    max-width: 1280px;
-    width: 100%;
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    box-sizing: border-box;
     padding: 150px 16px;
   }
 
@@ -102,17 +98,5 @@ export default {
     width: 76%;
     top: 6%;
     left: 12%;
-  }
-
-  @media (max-width: 1280px) {
-    .experience-screen {
-      max-width: 960px;
-    }
-  }
-
-  @media (max-width: 960px) {
-    .experience-screen {
-      max-width: 640px;
-    }
   }
 </style>

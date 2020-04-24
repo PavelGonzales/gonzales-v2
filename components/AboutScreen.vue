@@ -1,5 +1,5 @@
 <template>
-  <div class="about-screen">
+  <div class="about-screen container">
     <p class="text">Since 2015, I have been engaged in front-end development and managed to participate in many projects and work in several large companies.</p>
   </div>
 </template>
@@ -12,12 +12,8 @@ export default {
 
 <style scoped>
   .about-screen {
-    max-width: 1280px;
-    width: 100%;
-    margin: auto;
     display: flex;
     align-items: center;
-    box-sizing: border-box;
     padding: 150px 16px;
   }
 
@@ -32,20 +28,12 @@ export default {
   }
 
   @media (max-width: 1280px) {
-    .about-screen {
-      max-width: 960px;
-    }
-
     .text {
       font-size: 54px;
     }
   }
 
   @media (max-width: 960px) {
-    .about-screen {
-      max-width: 640px;
-    }
-
     .text {
       font-size: 36px;
     }
