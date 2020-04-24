@@ -21,6 +21,15 @@ body {
   width: 100%;
 }
 
+.word {
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.char {
+  display: inline-block;
+}
+
 @media (max-width: 1280px) {
   .container {
     width: 960px;

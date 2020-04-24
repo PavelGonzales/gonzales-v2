@@ -24,11 +24,11 @@ export default {
 
   async mounted() {
     const Splitting = await import('splitting')
-    Splitting.default({ target: this.$refs.title, by: 'chars' })
-    const chars = this.$refs.title.querySelectorAll('.char')
+    const result = Splitting.default({ target: this.$refs.title, by: 'chars' })[0]
 
-    const tl = new TimelineMax({ paused: true, defaults: { duration: 2 } });
-    tl.staggerFrom(chars, 1, { opacity: 0 }, 0.015)
+    const tl = new TimelineMax({ paused: true });
+    tl
+      .staggerFrom(result.chars, 1, { opacity: 0 }, 0.015)
       .from(this.$refs.emoji, 0.15, { opacity: 0 }, 1)
       .from(this.$refs.emoji, 1, { y: -100, ease: Bounce.easeOut }, 1)
 
@@ -38,8 +38,10 @@ export default {
 
     const tlTitleLeave = new TimelineMax({ paused: true });
     tlTitleLeave
-      .staggerTo(chars, 1, { y: -30 }, 0.5)
-      .staggerTo(chars, 1, { opacity: 0 }, 0.5, 0.1)
+      .staggerTo(result.chars, 1, { y: -30 }, 0.5)
+      .staggerTo(result.chars, 1, { opacity: 0 }, 0.5, 0.1)
+      .to(this.$refs.emoji, 10, { y: -100 }, result.chars.length * 0.5)
+      .to(this.$refs.emoji, 3, { opacity: 0 }, result.chars.length * 0.5 + 0.1)
 
     this.controller = new this.$scrollmagic.Controller();
 
@@ -57,16 +59,6 @@ export default {
   }
 }
 </script>
-
-<style>
-.word {
-  white-space: nowrap;
-}
-
-.char {
-  display: inline-block;
-}
-</style>
 
 <style scoped>
   .main-screen {
