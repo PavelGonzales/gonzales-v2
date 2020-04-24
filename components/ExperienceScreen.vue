@@ -64,8 +64,8 @@ export default {
     createScene({ pin = '', name = '', offset = 150 } = {}) {
       new this.$scrollmagic.Scene({
       triggerElement: this.$refs[pin],
-      offset, // start scene after scrolling for 100px
-      duration: 380 // pin the element for 400px of scrolling
+      offset,
+      duration: 380
     })
       .setPin(this.$refs[pin])
       .on('enter', (e) => {
@@ -73,7 +73,6 @@ export default {
         TweenMax.to(this.$refs[`iphone-${name}-job`], 0.5, { opacity: 1 })
       })
       .on('leave', (e) => {
-        // timeline.reverse();
         TweenMax.to(this.$refs[`macbook-${name}-job`], 0.5, { opacity: 0 })
         TweenMax.to(this.$refs[`iphone-${name}-job`], 0.5, { opacity: 0 })
       })
@@ -86,10 +85,6 @@ export default {
 </script>
 
 <style scoped>
-  .scrollmagic-wrapper {
-    width: 100%;
-  }
-
   .experience-screen {
     display: flex;
     flex-wrap: wrap;

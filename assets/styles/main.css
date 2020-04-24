@@ -11,21 +11,30 @@ body {
 }
 
 .container {
-  max-width: 1280px;
-  width: 100%;
+  width: 1280px;
   margin: auto;
   box-sizing: border-box;
   padding: 0 16px;
 }
 
+.scrollmagic-wrapper {
+  width: 100%;
+}
+
 @media (max-width: 1280px) {
   .container {
-    max-width: 960px;
+    width: 960px;
   }
 }
 
 @media (max-width: 960px) {
   .container {
-    max-width: 640px;
+    width: 640px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: 100%;
   }
 }
