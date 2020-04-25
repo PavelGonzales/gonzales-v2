@@ -1,13 +1,9 @@
 <template>
-  <div ref="main-screen" class="scrollmagic-wrapper" :style="stylesWrapper">
-    <div class="position-fixed">
-      <div class="main-screen container">
-        <h1 ref="title" class="title">
-          Hi. I'm Pavel, a Moscow based <nobr>front-end</nobr> developer and team lead
-          <img ref="emoji" class="emoji" src="~/assets/technologist-emoji.png" alt="">
-        </h1>
-      </div>
-    </div>
+  <div class="main-screen container">
+    <h1 ref="title" class="title">
+      Hi. I'm Pavel, a Moscow based <nobr>front-end</nobr> developer and team lead
+      <img ref="emoji" class="emoji" src="~/assets/technologist-emoji.png" alt="emoji">
+    </h1>
   </div>
 </template>
 
@@ -16,25 +12,6 @@ import { TimelineMax, Bounce } from 'gsap';
 
 export default {
   name: 'MainScreen',
-
-  data() {
-    return {
-      controller: null,
-      scene1: null
-    }
-  },
-
-  computed: {
-    stylesWrapper() {
-      if (process.browser) {
-        return {
-          'min-height': `${window.innerHeight / 2}px`
-        }
-      } else {
-        return {}
-      }
-    }
-  },
 
   async mounted() {
     const Splitting = await import('splitting')
@@ -49,38 +26,13 @@ export default {
     setTimeout(() => {
       tl.play();
     }, 300)
-
-    const tlTitleLeave = new TimelineMax({ paused: true });
-    tlTitleLeave
-      .staggerTo(result.chars, 1, { y: -30 }, 0.5)
-      .staggerTo(result.chars, 1, { opacity: 0 }, 0.5, 0.1)
-      .to(this.$refs.emoji, 10, { y: -100 }, result.chars.length * 0.5)
-      .to(this.$refs.emoji, 3, { opacity: 0 }, result.chars.length * 0.5 + 0.1)
-
-    this.controller = new this.$scrollmagic.Controller();
-
-    new this.$scrollmagic.Scene({
-      triggerElement: this.$refs['main-screen'],
-      offset: window.innerHeight / 2,
-      duration: 300
-    })
-      .setPin(this.$refs['main-screen'])
-      .on('progress', (e) => {
-        tlTitleLeave.progress(e.progress)
-      })
-      // .addIndicators({ name: 'title' })
-      .addTo(this.controller)
   }
 }
 </script>
 
 <style scoped>
-  .scrollmagic-wrapper {
-    min-height: 300px;
-  }
-
   .main-screen {
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     color: #fff;

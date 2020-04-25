@@ -1,17 +1,13 @@
 <template>
-  <div ref="bye-screen" class="scrollmagic-wrapper">
-    <div class="position-fixed">
-      <footer ref="footer" class="bye-screen container">
-        <p class="contact-text">Contact me</p>
-        <div class="copyright">
-          <span class="copyright__inner">
-            {{ new Date().getFullYear() }} &copy; Pavel Gonzales
-          </span>
-        </div>
-        <p class="bye-text">Chiao!</p>
-      </footer>
+  <footer ref="footer" class="bye-screen container">
+    <p class="contact-text">Contact me</p>
+    <div class="copyright">
+      <span class="copyright__inner">
+        {{ new Date().getFullYear() }} &copy; Pavel Gonzales
+      </span>
     </div>
-  </div>
+    <p ref="chiao" class="bye-text">Chiao!</p>
+  </footer>
 </template>
 
 <script>
@@ -27,36 +23,31 @@ export default {
     }
   },
 
-  mounted() {
+  async mounted() {
+    const Splitting = await import('splitting')
+    const result = Splitting.default({ target: this.$refs.chiao, by: 'chars' })[0]
+
     const tlFooter = new TimelineMax({ paused: true });
-    const experienceScreen = document.querySelector('#experience-screen');
 
     tlFooter
-      .from(this.$refs.footer, 1, { opacity: 0, y: 300 }, 0)
-      .to(experienceScreen, 1, { opacity: 0, y: -300 }, 0)
+      .from(this.$refs.footer, 1, { opacity: 0 }, 0)
+      .staggerFrom(result.chars, 0.001, { opacity: 0 }, Math.random() / 5, 0)
 
     this.controller = new this.$scrollmagic.Controller();
 
     new this.$scrollmagic.Scene({
-      triggerElement: this.$refs['bye-screen'],
-      offset: -(window.innerHeight / 2),
-      duration: 300
+      triggerElement: this.$refs.footer
     })
-      .setPin(this.$refs['bye-screen'])
-      .on('progress', (e) => {
-        tlFooter.progress(e.progress)
+      .on('progress', () => {
+        tlFooter.play()
       })
-      // .addIndicators({ name: 'bye screen' })
       .addTo(this.controller)
+      // .addIndicators({ name: 'bye screen' })
   }
 }
 </script>
 
 <style scoped>
-  .scrollmagic-wrapper {
-    min-height: 300px;
-  }
-
   .bye-screen {
     padding: 150px 16px 0;
     color: #fff;

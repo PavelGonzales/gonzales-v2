@@ -18,19 +18,6 @@ body {
   padding: 0 16px;
 }
 
-.scrollmagic-wrapper {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.position-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-}
-
 .word {
   white-space: nowrap;
   display: inline-block;

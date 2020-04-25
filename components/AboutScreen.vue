@@ -1,10 +1,6 @@
 <template>
-  <div ref="about-screen" class="scrollmagic-wrapper">
-    <div class="position-fixed">
-      <div class="about-screen container">
-        <p ref="text" class="text">Since 2015, I have been engaged in front-end development and managed to participate in many projects and work in several large companies.</p>
-      </div>
-    </div>
+  <div ref="about-screen" class="about-screen container">
+    <p ref="text" class="text">Since 2015, I have been engaged in front-end development and managed to participate in many projects and work in several large companies.</p>
   </div>
 </template>
 
@@ -28,34 +24,28 @@ export default {
     const tlText = new TimelineMax({ paused: true });
 
     result.lines.forEach((item, index) => {
+      const duration = index / 15;
+
       tlText
-        .from(item, 1, { y: 30 }, index)
-        .from(item, 1, { opacity: 0 }, index + 0.1)
-        .to(item, 1, { y: -30 }, index + result.lines.length)
-        .to(item, 1, { opacity: 0 }, index + result.lines.length + 0.1)
+        .from(item, 1, { y: 30 }, duration + 0.05)
+        .from(item, 1, { opacity: 0 }, duration)
     });
 
     this.controller = new this.$scrollmagic.Controller();
 
     new this.$scrollmagic.Scene({
-      triggerElement: this.$refs['about-screen'],
-      offset: 0,
-      duration: 600
+      triggerElement: this.$refs['about-screen']
     })
-      .setPin(this.$refs['about-screen'])
-      .on('progress', (e) => {
-        tlText.progress(e.progress)
+      .on('enter', () => {
+        tlText.play()
       })
-      // .addIndicators({ name: 'about screen' })
       .addTo(this.controller)
+      // .addIndicators({ name: 'about screen' })
   }
 }
 </script>
 
 <style scoped>
-  .scrollmagic-wrapper {
-    min-height: 600px;
-  }
   .about-screen {
     display: flex;
     align-items: center;

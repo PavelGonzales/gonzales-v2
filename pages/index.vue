@@ -1,6 +1,5 @@
 <template>
   <div :class="['app', {'hidden': !isLoaded}]">
-    <div id="spacer" class="spacer" />
     <div ref="cursor" class="cursor" />
     <Nav />
     <MainScreen />
@@ -69,21 +68,6 @@ export default {
 
 .hidden {
   opacity: 0;
-}
-
-.position-abolute {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-.spacer {
-  height: 400vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
 }
 
 .cursor {
