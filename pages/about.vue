@@ -1,5 +1,5 @@
 <template>
-  <div :class="[$style.root, $style.container]">
+  <section :class="[$style.root, $style.container]">
     <h1 :class="$style.title">About</h1>
     <picture :class="$style.avatar">
       <source srcset="./../assets/ava_2.jpg" type="image/jpeg" :class="$style.avatarSource" />
@@ -7,29 +7,21 @@
     </picture>
 
     <p :class="$style.paragraph">
-      Я программист-самоучка. Вошел в разработку в 2013, активно начал заниматься с 2015.
+      I'm a self-taught programmer. I joined the development in 2013 and started working actively in 2015.
       <br /><br />
-      В 2013 окончил курсы по web-дизайну. После этого немного фрилансил. Затем был
-      перерыв на 2 года.
+      In 2013, I graduated from web-design courses. After that, I'm a little freelanced. Then there was a break for 2 years.
       <br /><br />
-      В 2015 меня взяли младшим разработчиком в Beta Digital Production, где я сильно
-      вырос. Получил опыт проектирования интерфейсов, приобрел чувство стиля в сайтах, научился чувствовать
-      анимацию.
+      In 2015, I was hired as a junior developer at Beta Digital Production, where I grew up a lot. I gained experience in designing interfaces, acquired a sense of style in websites, and learned to feel the animation.
       <br /><br />
-      В 2018 я перешел работать в OZON. На тот момент он переезжал на новые рельсы. И я в
-      участвовал в переезде с самого начала. Приобрел опыт продуктовой разработки больших и запутанных систем.
-      Понял как происходит разработка с кучей зависимостей и согласований.
+      In 2018, I joined OZON. At that point, he was moving on to a new track. And I was involved in the move from the very beginning. I gained experience in product development of large and complicated systems. I understood how development works with a lot of dependencies and approvals.
       <br /><br />
-      В разные моменты жизни пытался запустить запустить свои проекты. На последнем проекте
-      спроектировал интерфейс, спроектировал базу, написал бэкенд на node, фронт на vue, задеплоил все на хостинге.
-      Получил представление и опыт о полном цикле разработки.
+      At different moments of my life I tried to launch my projects. On the last project, I designed the interface, designed the base, wrote the node backend, the front on vue, and put everything on the hosting. I got an idea and experience of the whole development cycle.
       <br /><br />
-      Куда хочу двигаться?
+      Where do I want to go?
       <br />
-      Последнее время все больше начал смотреть в сторону
-      управления. Хочется продумывать и развивать продукты. Планирую дальше расти как технический менеджер.
+      Lately I've been looking more and more at the control side. I want to think about and develop products. I plan to grow further as a technical manager.
     </p>
-  </div>
+  </section>
 </template>
 
 <script>
