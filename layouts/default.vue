@@ -1,55 +1,70 @@
 <template>
   <div>
+    <div ref="cursor" class="cursor" />
+
+    <Nav />
+
     <nuxt />
   </div>
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+<script>
+import { TweenLite } from 'gsap'
+import Nav from '@/components/Nav.vue'
+
+export default {
+  components: {
+    Nav
+  },
+
+  mounted () {
+    TweenLite.set(this.$refs.cursor, {
+      xPercent: -50,
+      yPercent: -50
+    });
+
+    window.addEventListener('mousemove', this.moveCircle);
+  },
+
+  destroyed () {
+    window.removeEventListener('mousemove', this.moveCircle);
+  },
+
+  methods: {
+    moveCircle(e) {
+      TweenLite.to(this.$refs.cursor, 0.3, {
+        x: e.clientX,
+        y: e.clientY
+      });
+    }
+  }
+}
+</script>
+
+<style scoped>
+.cursor {
+  display: none;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
+/* mouse, touch pad */
+@media (hover: hover) and (pointer: fine) {
+  /* * {
+    cursor: none;
+  } */
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+  .cursor {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #000;
+    z-index: 1000;
+    opacity: 0.5;
+  }
 }
 </style>

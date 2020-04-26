@@ -1,6 +1,9 @@
 <template>
   <ol class="nav container">
     <li class="nav-item">
+      <nuxt-link class="nav-link" to="/">Main</nuxt-link>
+    </li>
+    <li class="nav-item">
       <nuxt-link class="nav-link" to="/about">About</nuxt-link>
     </li>
     <li class="nav-item">

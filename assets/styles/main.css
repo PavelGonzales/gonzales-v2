@@ -1,5 +1,5 @@
 :root {
-  --background-color: #1b1b1b;
+  --background-color: #0b0b0b;
 }
 
 body {
@@ -25,6 +25,15 @@ body {
 
 .char {
   display: inline-block;
+}
+
+.main-screen .char:hover {
+  color: red;
+  transform: scale(2);
+}
+
+.about-screen .word:hover {
+  color: red;
 }
 
 @media (max-width: 1280px) {
