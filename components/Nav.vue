@@ -1,16 +1,16 @@
 <template>
-  <ol class="nav container">
-    <li class="nav-item">
-      <nuxt-link class="nav-link" to="/">Main</nuxt-link>
+  <ol :class="[$style.nav, $style.container]">
+    <li :class="$style.navItem">
+      <nuxt-link :class="$style.navLink" to="/">Main</nuxt-link>
     </li>
-    <li class="nav-item">
-      <nuxt-link class="nav-link" to="/about">About</nuxt-link>
+    <li :class="$style.navItem">
+      <nuxt-link :class="$style.navLink" to="/about">About</nuxt-link>
     </li>
-    <li class="nav-item">
-      <nuxt-link class="nav-link" to="/experience">Experience</nuxt-link>
+    <li :class="$style.navItem">
+      <nuxt-link :class="$style.navLink" to="/experience">Experience</nuxt-link>
     </li>
-    <li class="nav-item">
-      <nuxt-link class="nav-link" to="/contacts">Contacts</nuxt-link>
+    <li :class="$style.navItem">
+      <nuxt-link :class="$style.navLink" to="/contacts">Contacts</nuxt-link>
     </li>
   </ol>
 </template>
@@ -21,43 +21,45 @@ export default {
 }
 </script>
 
-<style scoped>
-  .nav {
-    width: 100%;
-    display: flex;
-    color: #fff;
-    padding: 0;
-    list-style: none;
-    position: relative;
-    justify-content: center;
-    padding: 25px 0;
-  }
+<style module>
+@import '~/assets/styles/main.css';
 
-  .nav::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #666;
-    position: absolute;
-    top: 50%;
-  }
+.nav {
+  display: flex;
+  color: #fff;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  justify-content: center;
+  padding: 25px 0;
+}
 
-  .nav-item {
-    padding: 0 6px;
-    margin: 0 28px;
-    background-color: var(--background-color);
-    position: relative;
-  }
+.nav::before {
+  content: '';
+  display: block;
+  width: calc(100% - 32px);
+  height: 1px;
+  background-color: #666;
+  position: absolute;
+  top: 50%;
+  left: 16px;
+}
 
-  .nav-link {
-    color: #fff;
-    text-decoration: none;
-  }
+.navItem {
+  padding: 0 6px;
+  margin: 0 28px;
+  background-color: var(--background-color);
+  position: relative;
+}
 
-  @media (max-width: 640px) {
-    .nav-item {
-      margin: 0 12px;
-    }
+.navLink {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .navItem {
+    margin: 0 12px;
   }
+}
 </style>

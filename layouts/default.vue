@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="cursor" class="cursor" />
+    <div ref="cursor" :class="$style.cursor" />
 
     <Nav />
 
@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style module>
 .cursor {
   display: none;
 }

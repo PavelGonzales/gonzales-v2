@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div :class="$style.app">
     <MainScreen />
     <AboutScreen />
     <ExperienceScreen />
@@ -22,7 +22,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style module>
 .app {
   display: flex;
   flex-wrap: wrap;

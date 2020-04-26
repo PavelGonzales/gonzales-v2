@@ -27,15 +27,6 @@ body {
   display: inline-block;
 }
 
-.main-screen .char:hover {
-  color: red;
-  transform: scale(2);
-}
-
-.about-screen .word:hover {
-  color: red;
-}
-
 @media (max-width: 1280px) {
   .container {
     width: 960px;
