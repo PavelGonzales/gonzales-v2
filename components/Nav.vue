@@ -26,7 +26,6 @@ export default {
 
 .nav {
   display: flex;
-  color: #fff;
   padding: 0;
   list-style: none;
   position: relative;

@@ -118,7 +118,6 @@ export default {
 }
 
 .timeline {
-  color: #fff;
   position: relative;
   width: 100%;
 }
@@ -168,7 +167,6 @@ export default {
 }
 
 .jobStart {
-  color: #fff;
   justify-content: center;
   text-align: center;
   font-size: 105px;

@@ -67,13 +67,15 @@ export default {
   min-height: calc(100vh - 68px);
   display: flex;
   align-items: center;
-  color: #fff;
   position: relative;
 }
 
-.mainScreen :global(.char):hover {
-  color: red;
-  transform: scale(2);
+/* mouse, touch pad */
+@media (hover: hover) and (pointer: fine) {
+  .mainScreen :global(.char):hover {
+    color: red;
+    transform: scale(2);
+  }
 }
 
 .title {

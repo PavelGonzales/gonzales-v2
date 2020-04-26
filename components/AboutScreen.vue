@@ -53,13 +53,15 @@ export default {
   height: 100%;
 }
 
-.aboutScreen :global(.word):hover {
-  color: red;
+/* mouse, touch pad */
+@media (hover: hover) and (pointer: fine) {
+  .aboutScreen :global(.word):hover {
+    color: red;
+  }
 }
 
 .text {
   font-size: 72px;
-  color: #fff;
   font-weight: 600;
   text-align: left;
   position: relative;

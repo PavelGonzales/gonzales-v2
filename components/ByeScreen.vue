@@ -52,7 +52,6 @@ export default {
 
 .byeScreen {
   padding: 150px 16px 0;
-  color: #fff;
   text-align: center;
   height: 100%;
   align-items: center;
