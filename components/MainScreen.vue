@@ -1,7 +1,7 @@
 <template>
   <div ref="main-screen" class="main-screen container">
     <h1 ref="title" class="title">
-      Hi. I'm Pavel, a Moscow based <nobr>front-end</nobr> developer and team lead
+      Hi. I'm Pavel, a Moscow based senior <nobr>front-end</nobr> developer and team lead
       <img ref="emoji" class="emoji" src="~/assets/technologist-emoji.png" alt="emoji">
     </h1>
 

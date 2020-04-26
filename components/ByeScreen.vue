@@ -36,7 +36,8 @@ export default {
     this.controller = new this.$scrollmagic.Controller();
 
     new this.$scrollmagic.Scene({
-      triggerElement: this.$refs.footer
+      triggerElement: this.$refs.footer,
+      offset: -(this.$refs.footer.clientHeight / 2)
     })
       .on('progress', () => {
         tlFooter.play()
@@ -126,6 +127,10 @@ export default {
   }
 
   @media (max-width: 640px) {
+    .bye-screen {
+      padding-bottom: 75px;
+    }
+
     .bye-text {
       font-size: 75px;
     }

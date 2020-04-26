@@ -1,101 +1,104 @@
 <template>
   <div ref="experience-screen" class="experience-screen container">
-    <div ref="frame-macbook" class="mock-macbook">
-      <img class="mock-macbook-job main" src="./../assets/jobs/gonzales-macbook.png" alt="">
-
-      <img ref="macbook-ozon-job" class="mock-macbook-job" src="./../assets/jobs/ozon-macbook.png" alt="">
-      <img ref="macbook-rabotaru-job" class="mock-macbook-job" src="./../assets/jobs/rabotaru-macbook.png" alt="">
-      <img ref="macbook-ecn-job" class="mock-macbook-job" src="./../assets/jobs/ecn-macbook.png" alt="">
-      <img ref="macbook-breffi-job" class="mock-macbook-job" src="./../assets/jobs/breffi-macbook.png" alt="">
-      <img ref="macbook-bezpravok-job" class="mock-macbook-job" src="./../assets/jobs/bezpravok-macbook.png" alt="">
-      <img ref="macbook-alfaensurance-job" class="mock-macbook-job" src="./../assets/jobs/alfaensurance-macbook.jpg" alt="">
-
-      <img class="mock-img macbook" src="./../assets/mock_macbook.png" alt="">
+    <div class="timeline">
+      <div ref="timeline-line" class="timeline-line" />
+      <ul ref="year-list" class="year-list">
+        <li ref="year-2015" class="year-list-item">2015</li>
+        <li ref="year-2016" class="year-list-item">2016</li>
+        <li ref="year-2018" class="year-list-item">2018</li>
+        <li ref="year-2020" class="year-list-item">2020</li>
+      </ul>
     </div>
 
-    <div ref="frame-iphone" class="mock-iphone">
-      <img class="mock-iphone-job main" src="./../assets/jobs/gonzales-iphone.jpeg" alt="">
-
-      <img ref="iphone-ozon-job" class="mock-iphone-job" src="./../assets/jobs/ozon-iphone.jpg" alt="">
-      <img ref="iphone-rabotaru-job" class="mock-iphone-job" src="./../assets/jobs/rabotaru-iphone.jpeg" alt="">
-      <img ref="iphone-ecn-job" class="mock-iphone-job" src="./../assets/jobs/ecn-iphone.jpeg" alt="">
-      <img ref="iphone-breffi-job" class="mock-iphone-job" src="./../assets/jobs/breffi-iphone.jpeg" alt="">
-      <img ref="iphone-bezpravok-job" class="mock-iphone-job" src="./../assets/jobs/bezpravok-iphone.jpeg" alt="">
-
-      <img class="mock-img" src="./../assets/mock_iphone.png" alt="">
+    <div class="jobs-list">
+      <div ref="job-start" class="job job-start">
+        several small companies
+      </div>
+      <div ref="job-beta" class="job">
+        <img ref="logo-beta" class="company-logo beta" src="~/assets/logos/beta.svg" alt="">
+      </div>
+      <div ref="job-ozon" class="job">
+        <img ref="logo-ozon" class="company-logo ozon" src="~/assets/logos/ozon.svg" alt="">
+      </div>
+      <div ref="job-rabotaru" class="job">
+        <img ref="logo-rabotaru" class="company-logo rabotaru" src="~/assets/logos/rabotaru.svg" alt="">
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-/* eslint-disable */
-import { TimelineMax, TweenMax } from 'gsap';
+import { TimelineMax } from 'gsap';
 export default {
   name: 'ExperienceScreen',
 
   data() {
     return {
-      controller: null,
-      scene1: null,
-      scene2: null,
-      scene3: null,
-      scene4: null,
-      scene5: null
+      controller: null
     }
   },
 
   mounted() {
     this.controller = new this.$scrollmagic.Controller();
+    const yearListItem = this.$refs['year-list'].querySelectorAll('.year-list-item');
+    const tlYears = new TimelineMax({ paused: true });
+    tlYears
+      .from(this.$refs['timeline-line'], 3, { scaleX: 0 }, 0)
+      .staggerFrom(yearListItem, 0.15, { opacity: 0 }, 0.4, 0.2)
 
-    const jobsArray = ['ozon', 'rabotaru', 'ecn', 'breffi', 'bezpravok'];
-    const duration = 380;
-    let accOffset = window.innerHeight / 3.75;
+    // Timeline 2015
+    const tl2015 = new TimelineMax({ paused: true })
+    tl2015
+      .to(this.$refs['year-2015'], 0.25, { scale: 1.2, color: '#fff' }, 0)
+      .from(this.$refs['job-start'], 0.15, { opacity: 0 }, 0)
 
-    jobsArray.forEach((name, index) => {
-      this[`scene${index + 1}`] = this.createScene({ pin: 'experience-screen', name, offset: accOffset })
-      accOffset += duration
-    })
+    // Timeline 2016
+    const tl2016 = new TimelineMax({ paused: true })
+    tl2016
+      .to(this.$refs['year-2016'], 0.25, { scale: 1.2, color: '#fff' }, 0)
+      .from(this.$refs['job-beta'], 0.15, { opacity: 0 }, 0.15)
 
-    const tlFrames = new TimelineMax({ paused: true });
-    tlFrames
-      .from(this.$refs['frame-macbook'], 1, { x: -100, opacity: 0 }, 0)
-      .from(this.$refs['frame-iphone'], 1, { x: 100, opacity: 0 }, 0)
+    // Timeline 2018
+    const tl2018 = new TimelineMax({ paused: true })
+    tl2018
+      .to(this.$refs['year-2018'], 0.25, { scale: 1.2, color: '#fff' }, 0)
+      .from(this.$refs['job-ozon'], 0.15, { opacity: 0 }, 0.15)
+
+    // Timeline 2020
+    const tl2020 = new TimelineMax({ paused: true })
+    tl2020
+      .to(this.$refs['year-2020'], 0.25, { scale: 1.2, color: '#fff' }, 0)
+      .from(this.$refs['job-rabotaru'], 0.15, { opacity: 0 }, 0.15)
 
     new this.$scrollmagic.Scene({
       triggerElement: this.$refs['experience-screen'],
+      offset: (window.innerHeight / 10),
       duration: 1000
     })
+      .setPin(this.$refs['experience-screen'])
       .on('enter', () => {
-        tlFrames.play()
+        tlYears.play()
       })
+      .on('progress', (e) => {
+        if (e.progress >= 0 && e.progress < 0.33) {
+          tl2015.play()
+          tl2016.reverse()
+        } else if (e.progress >= 0.33 && e.progress < 0.66) {
+          tl2015.reverse()
+          tl2016.play()
+          tl2018.reverse()
+        } else if (e.progress >= 0.66 && e.progress < 1) {
+          tl2016.reverse()
+          tl2018.play()
+          tl2020.reverse()
+        } else {
+          tl2018.reverse()
+          tl2020.play()
+        }
+      })
+      .addTo(this.controller)
       // .addIndicators({ name: 'experience' })
-      .addTo(this.controller)
-  },
-
-  methods: {
-    createScene({ pin = '', name = '', offset = 150 } = {}) {
-      new this.$scrollmagic.Scene({
-        triggerElement: this.$refs[pin],
-        offset,
-        duration: 380
-      })
-      .setPin(this.$refs[pin])
-      .on('tlFrames', (e) => {
-        tlTitleLeave.progress(e.progress)
-      })
-      .on('enter', (e) => {
-        TweenMax.to(this.$refs[`macbook-${name}-job`], 0.5, { opacity: 1 })
-        TweenMax.to(this.$refs[`iphone-${name}-job`], 0.5, { opacity: 1 })
-      })
-      .on('leave', (e) => {
-        TweenMax.to(this.$refs[`macbook-${name}-job`], 0.5, { opacity: 0 })
-        TweenMax.to(this.$refs[`iphone-${name}-job`], 0.5, { opacity: 0 })
-      })
-      // .addIndicators({ name: pin })
-      .addTo(this.controller)
-    }
   }
-
 }
 </script>
 
@@ -107,39 +110,110 @@ export default {
     margin-top: 150px;
   }
 
-  .mock-macbook {
-    width: 73%;
+  .timeline {
+    color: #fff;
     position: relative;
+    width: 100%;
   }
 
-  .mock-iphone {
-    width: 27%;
-    position: relative;
+  .timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #999;
+    transform-origin: center left;
   }
 
-  .mock-img {
+  .year-list {
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     position: relative;
   }
 
-  .mock-iphone-job {
-    position: absolute;
-    width: 64%;
-    top: 2%;
-    left: 18%;
-    opacity: 0;
+  .year-list-item {
+    font-size: 60px;
+    font-weight: 600;
+    padding: 0 15px;
+    background-color: var(--background-color);
+    color: #999;
   }
 
-  .mock-macbook-job {
-    position: absolute;
-    width: 76%;
-    top: 5%;
-    left: 12%;
-    opacity: 0;
+  .jobs-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 275px;
   }
 
-  .mock-iphone-job.main,
-  .mock-macbook-job.main {
-    opacity: 1;
+  .job {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    margin-top: 50px;
+  }
+
+  .job-start {
+    color: #fff;
+    justify-content: center;
+    text-align: center;
+    font-size: 105px;
+    font-weight: 600;
+    font-weight: 600;
+    padding-top: 4%;
+  }
+
+  .company-logo {
+    width: 100%;
+  }
+
+  .company-logo.ozon {
+    width: 51%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4%;
+  }
+
+  .company-logo.beta {
+    width: 51%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 1280px) {
+    .year-list-item {
+      font-size: 45px;
+    }
+
+    .job-start {
+      font-size: 78px;
+    }
+  }
+
+  @media (max-width: 960px) {
+    .year-list-item {
+      font-size: 30px;
+    }
+
+    .job-start {
+      font-size: 50px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .timeline-line {
+      display: none;
+    }
+
+    .job-start {
+      padding-top: 0;
+    }
   }
 </style>
