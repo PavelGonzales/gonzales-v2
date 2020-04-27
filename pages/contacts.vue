@@ -1,39 +1,40 @@
 <template>
   <div :class="$style.container">
+    <h1 :class="$style.title">Contacts</h1>
     <ul :class="$style.socialList">
       <li :class="$style.socialItem">
-        <a href="mailto:develop.gonzales@gmail.com" target="_blank">
-          <img src="./../assets/icons/google.svg" alt="gmail" :class="$style.socialImg">
+        <a :class="$style.socialLink" href="mailto:develop.gonzales@gmail.com" target="_blank">
+          @gmail
         </a>
       </li>
       <li :class="$style.socialItem">
-        <a href="https://www.linkedin.com/in/pavelgonzales/" target="_blank">
-          <img src="./../assets/icons/linkedin.svg" alt="linkedin" :class="$style.socialImg">
+        <a :class="$style.socialLink" href="https://www.linkedin.com/in/pavelgonzales/" target="_blank">
+          LinkedIn
         </a>
       </li>
       <li :class="$style.socialItem">
-        <a href="https://www.facebook.com/develop.gonzales" target="_blank">
-          <img src="./../assets/icons/facebook.svg" alt="facebook" :class="$style.socialImg">
+        <a :class="$style.socialLink" href="https://www.facebook.com/develop.gonzales" target="_blank">
+          Facebook
         </a>
       </li>
       <li :class="$style.socialItem">
-        <a href="https://www.instagram.com/pavelgonzales/" target="_blank">
-          <img src="./../assets/icons/instagram.svg" alt="instagram" :class="$style.socialImg">
+        <a :class="$style.socialLink" href="https://www.instagram.com/pavelgonzales/" target="_blank">
+          Instagram
         </a>
       </li>
       <li :class="$style.socialItem">
-        <a href="https://medium.com/@pavelgonzales" target="_blank">
-          <img src="./../assets/icons/medium.svg" alt="medium" :class="$style.socialImg">
+        <a :class="$style.socialLink" href="https://medium.com/@pavelgonzales" target="_blank">
+          Medium
         </a>
       </li>
       <li :class="$style.socialItem">
-        <a href="https://github.com/PavelGonzales" target="_blank">
-          <img src="./../assets/icons/github.svg" alt="github" :class="$style.socialImg">
+        <a :class="$style.socialLink" href="https://github.com/PavelGonzales" target="_blank">
+          GitHub
         </a>
       </li>
       <li :class="$style.socialItem">
-        <a href="tg://resolve?domain=pavelgonzales" target="_blank">
-          <img src="./../assets/icons/telegram.svg" alt="telegram" :class="$style.socialImg">
+        <a :class="$style.socialLink" href="tg://resolve?domain=pavelgonzales" target="_blank">
+          Telegram
         </a>
       </li>
     </ul>
@@ -49,35 +50,69 @@ export default {
 <style module>
 @import '~/assets/styles/main.css';
 
+.title {
+  font-size: 170px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
 .socialList {
   padding: 0;
   list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  text-align: center;
 }
 
 .socialItem {
-  width: 10.5%;
-}
-
-.socialImg {
   width: 100%;
 }
 
+.socialLink {
+  font-size: 70px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  width: 100%;
+  position: relative;
+}
+
+.socialLink::before {
+  content: '';
+  display: block;
+  height: 0.27em;
+  background-color: red;
+  width: calc(100% + 0.72em);
+  position: absolute;
+  top: 0.53em;
+  left: -0.36em;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* mouse, touch pad */
+@media (hover: hover) and (pointer: fine) {
+  .socialLink:hover  {
+    font-style: italic;
+  }
+
+  .socialLink:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1280px) {
+  .title {
+    font-size: 128px;
+  }
+
+  .socialLink {
+    font-size: 52px;
+  }
+}
+
 @media (max-width: 640px) {
-  .socialList {
-    justify-content: flex-start;
-  }
-
-  .socialItem {
-    width: 60px;
-    margin-bottom: 12%;
-    margin-right: 12%;
-  }
-
-  .socialItem:nth-child(4n + 4) {
-    margin-right: 0;
+  .title {
+    font-size: 85px;
   }
 }
 </style>
