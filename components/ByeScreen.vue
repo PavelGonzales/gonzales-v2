@@ -63,7 +63,7 @@ export default {
 .copyright {
   font-weight: 300;
   width: 100%;
-  color: #ddd;
+  color: var(--white-color);
   position: relative;
   display: flex;
   justify-content: center;
@@ -74,13 +74,13 @@ export default {
   display: block;
   width: 100%;
   height: 1px;
-  background-color: #666;
+  background-color: var(--dark-gray-color);
   position: absolute;
   top: 50%;
 }
 
 .copyrightInner {
-  background-color: var(--background-color);
+  background-color: var(--black-color);
   position: relative;
   padding: 0 6px;
 }

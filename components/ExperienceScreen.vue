@@ -128,7 +128,7 @@ export default {
   left: 0;
   width: 100%;
   height: 1px;
-  background-color: #999;
+  background-color: var(--light-gray-color);
   transform-origin: center left;
 }
 
@@ -146,8 +146,8 @@ export default {
   font-size: 60px;
   font-weight: 600;
   padding: 0 15px;
-  background-color: var(--background-color);
-  color: #999;
+  background-color: var(--black-color);
+  color: var(--light-gray-color);
 }
 
 .jobsList {

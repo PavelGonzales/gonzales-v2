@@ -61,8 +61,8 @@ export default {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #fff;
-    border: 2px solid #000;
+    background-color: var(--white-color);
+    border: 2px solid var(--black-color);
     z-index: 1000;
     opacity: 0.2;
   }

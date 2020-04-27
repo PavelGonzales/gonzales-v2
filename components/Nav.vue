@@ -38,7 +38,7 @@ export default {
   display: block;
   width: calc(100% - 32px);
   height: 1px;
-  background-color: #666;
+  background-color: var(--dark-gray-color);
   position: absolute;
   top: 50%;
   left: 16px;
@@ -47,12 +47,12 @@ export default {
 .navItem {
   padding: 0 6px;
   margin: 0 28px;
-  background-color: var(--background-color);
+  background-color: var(--black-color);
   position: relative;
 }
 
 .navLink {
-  color: #fff;
+  color: var(--white-color);
   text-decoration: none;
 }
 

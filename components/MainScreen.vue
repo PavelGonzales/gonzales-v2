@@ -100,7 +100,7 @@ export default {
   left: 50%;
   width: 20px;
   height: 35px;
-  border: 1px solid #999;
+  border: 1px solid var(--light-gray-color);
   border-radius: 999px;
 }
 
@@ -109,7 +109,7 @@ export default {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: #999;
+  background-color: var(--light-gray-color);
   top: 5px;
   left: calc(50% - 2px);
   animation: scroll-icon 2.2s infinite cubic-bezier(0.65, 0.05, 0.36, 1);

@@ -69,7 +69,7 @@ export default {
 
 .socialLink {
   font-size: 70px;
-  color: #fff;
+  color: var(--white-color);
   font-weight: 600;
   text-decoration: none;
   width: 100%;
