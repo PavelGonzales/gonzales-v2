@@ -6,9 +6,9 @@
     <li :class="$style.navItem">
       <nuxt-link :class="$style.navLink" to="/about">About</nuxt-link>
     </li>
-    <li :class="$style.navItem">
+    <!-- <li :class="$style.navItem">
       <nuxt-link :class="$style.navLink" to="/experience">Experience</nuxt-link>
-    </li>
+    </li> -->
     <li :class="$style.navItem">
       <nuxt-link :class="$style.navLink" to="/contacts">Contacts</nuxt-link>
     </li>

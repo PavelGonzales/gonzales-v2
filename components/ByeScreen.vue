@@ -1,6 +1,6 @@
 <template>
   <footer ref="footer" :class="[$style.byeScreen, $style.container]">
-    <p :class="$style.contactText">Contact me</p>
+    <nuxt-link :class="$style.contactText" to="/contacts">Contact me</nuxt-link>
     <div :class="$style.copyright">
       <span :class="$style.copyrightInner">
         {{ new Date().getFullYear() }} &copy; Pavel Gonzales
@@ -89,6 +89,33 @@ export default {
   font-size: 186px;
   font-weight: 600;
   margin: 0;
+  color: var(--white-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.contactText::before {
+  content: '';
+  display: block;
+  height: 0.27em;
+  background-color: red;
+  width: calc(100% + 0.72em);
+  position: absolute;
+  top: 0.53em;
+  left: -0.36em;
+  opacity: 0;
+  z-index: -1;
+}
+
+/* mouse, touch pad */
+@media (hover: hover) and (pointer: fine) {
+  .contactText:hover  {
+    font-style: italic;
+  }
+
+  .contactText:hover::before {
+    opacity: 1;
+  }
 }
 
 .byeText {

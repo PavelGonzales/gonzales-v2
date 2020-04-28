@@ -25,8 +25,14 @@
 </template>
 
 <script>
+import mixinTransition from '@/mixins/transition'
+
 export default {
-  name: 'PageAbout'
+  name: 'PageAbout',
+
+  mixins: [
+    mixinTransition
+  ]
 }
 </script>
 

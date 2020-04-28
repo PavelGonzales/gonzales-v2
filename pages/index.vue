@@ -12,6 +12,7 @@ import MainScreen from '@/components/MainScreen.vue'
 import AboutScreen from '@/components/AboutScreen.vue'
 import ExperienceScreen from '@/components/ExperienceScreen.vue'
 import ByeScreen from '@/components/ByeScreen.vue'
+import mixinTransition from '@/mixins/transition'
 
 export default {
   components: {
@@ -19,7 +20,11 @@ export default {
     AboutScreen,
     ExperienceScreen,
     ByeScreen
-  }
+  },
+
+  mixins: [
+    mixinTransition
+  ]
 }
 </script>
 <style module>

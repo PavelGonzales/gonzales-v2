@@ -5,8 +5,14 @@
 </template>
 
 <script>
+import mixinTransition from '@/mixins/transition'
+
 export default {
-  name: 'PageExperience'
+  name: 'PageExperience',
+
+  mixins: [
+    mixinTransition
+  ]
 }
 </script>
 

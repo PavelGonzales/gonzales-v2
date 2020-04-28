@@ -5,6 +5,8 @@
     <Nav />
 
     <nuxt />
+
+    <div id="transitionBlock" ref="transitionBlock" :class="$style.transitionBlock"></div>
   </div>
 </template>
 
@@ -44,6 +46,16 @@ export default {
 <style module>
 .cursor {
   display: none;
+}
+
+.transitionBlock {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--black-color);
+  box-shadow: 0 -20px 30px rgba(11, 11, 11, 0.7);
 }
 
 /* mouse, touch pad */

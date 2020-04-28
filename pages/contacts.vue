@@ -42,8 +42,14 @@
 </template>
 
 <script>
+import mixinTransition from '@/mixins/transition'
+
 export default {
-  name: 'PageContacts'
+  name: 'PageContacts',
+
+  mixins: [
+    mixinTransition
+  ]
 }
 </script>
 

@@ -77,7 +77,7 @@ export default {
 
     new this.$scrollmagic.Scene({
       triggerElement: this.$refs.experienceScreen,
-      offset: (window.innerHeight / 10),
+      offset: (window.innerHeight / 6),
       duration: 1000
     })
       .setPin(this.$refs.experienceScreen)
