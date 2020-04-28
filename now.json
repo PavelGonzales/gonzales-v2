@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "name": "pavelgonzales.com",
   "alias": "pavelgonzales.com",
   "builds": [
     {
       "src": "nuxt.config.js",
-      "use": "@nuxtjs/now-builder@0.14.6",
+      "use": "@nuxtjs/now-builder@0.17.1",
       "config": {}
     }
   ],
