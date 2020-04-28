@@ -1,0 +1,45 @@
+[{
+  "@context": "http://www.schema.org",
+  "@type": "Person",
+  "@id": "https://pavelgonzales.com/about",
+  "name": "Pavel Gonzales",
+  "alternateName": "Pavel Gonzales",
+  "nationality": "Russian",
+  "birthPlace" : {
+    "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+      "addressLocality": "Moscow",
+      "addressRegion": "RU",
+          "addressCountry": "Russia"
+    }
+  },
+  "gender": "Male",
+  "Description": "Fron-end developer",
+  "disambiguatingDescription": "Fron-end developer",
+  "jobTitle": "Fron-end developer",
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "Rabota.ru",
+      "sameAs": [
+        "https://rabota.ru"
+      ]
+    }
+  ],
+  "url": "https://pavelgonzales.com",
+  "image": "https://pavelgonzales.com/_nuxt/img/90ac498.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Moscow",
+    "addressRegion": "RU",
+    "addressCountry": "Russia"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/pavelgonzales/",
+    "https://www.facebook.com/develop.gonzales",
+    "https://www.instagram.com/pavelgonzales/",
+    "https://medium.com/@pavelgonzales",
+    "https://github.com/PavelGonzales"
+  ]
+}]

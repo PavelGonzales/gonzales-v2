@@ -1,0 +1,10 @@
+User-agent: Yandex
+allow: /
+
+User-agent: Googlebot
+allow: /
+
+User-agent: *
+allow: /
+
+Sitemap: https://pavelgonzales.com/sitemap.xml

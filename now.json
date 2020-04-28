@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "pavelgonzales.com",
+  "alias": "pavelgonzales.com",
+  "builds": [
+    {
+      "src": "nuxt.config.js",
+      "use": "@nuxtjs/now-builder@0.14.6",
+      "config": {}
+    }
+  ],
+  "routes": [
+    { "src": "/_nuxt/.+", "headers": { "Cache-Control": "max-age=31557600" } },
+    { "src": "/(.*)", "dest": "/" }
+  ]
+}
