@@ -1,5 +1,5 @@
 <template>
-  <ol :class="[$style.nav, $style.container]">
+  <ol ref="nav" :class="[$style.nav, $style.container]">
     <li :class="$style.navItem">
       <nuxt-link :class="$style.navLink" to="/">Main</nuxt-link>
     </li>
@@ -16,8 +16,21 @@
 </template>
 
 <script>
+import { TimelineMax } from 'gsap';
+
 export default {
-  name: 'Nav'
+  name: 'Nav',
+
+  mounted() {
+    const tlEntry = new TimelineMax({ paused: true });
+    tlEntry
+      .from(this.$refs.nav, 1, { opacity: 0 }, 0)
+      .staggerFrom(this.$refs.nav.children, 0.3, { scaleY: 0 }, 0.05, 0)
+
+    setTimeout(() => {
+      tlEntry.play();
+    }, 300)
+  }
 }
 </script>
 

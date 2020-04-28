@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.container">
-    <h1 :class="$style.title">Contacts</h1>
-    <ul :class="$style.socialList">
+    <h1 ref="title" :class="$style.title">Contacts</h1>
+    <ul ref="socialList" :class="$style.socialList">
       <li :class="$style.socialItem">
         <a :class="$style.socialLink" href="mailto:develop.gonzales@gmail.com" target="_blank">
           @gmail
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { TimelineMax } from 'gsap';
 import mixinTransition from '@/mixins/transition'
 
 export default {
@@ -49,7 +50,18 @@ export default {
 
   mixins: [
     mixinTransition
-  ]
+  ],
+
+  mounted() {
+    const tlEntry = new TimelineMax({ paused: true });
+    tlEntry
+      .from(this.$refs.title, 1, { opacity: 0, y: 30 }, 0)
+      .staggerFrom(this.$refs.socialList.children, 1, { opacity: 0, y: 30 }, 0.05, 0.05)
+
+    setTimeout(() => {
+      tlEntry.play();
+    }, 300)
+  }
 }
 </script>
 
