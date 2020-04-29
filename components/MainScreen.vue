@@ -72,14 +72,13 @@ export default {
 
 /* mouse, touch pad */
 @media (hover: hover) and (pointer: fine) {
-  .mainScreen :global(.char):hover {
+  .mainScreen :global(.word):hover {
     color: red;
-    transform: scale(2);
   }
 }
 
 .title {
-  font-size: 140px;
+  font-size: 160px;
   font-weight: var(--font-bold);
   text-align: left;
   position: relative;
@@ -133,7 +132,7 @@ export default {
 
 @media (max-width: 1280px) {
   .title {
-    font-size: 100px;
+    font-size: 126px;
   }
 
   .emoji {
@@ -143,7 +142,7 @@ export default {
 
 @media (max-width: 960px) {
   .title {
-    font-size: 65px;
+    font-size: 82px;
   }
 
   .emoji {
