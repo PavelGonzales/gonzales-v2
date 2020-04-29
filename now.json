@@ -5,7 +5,11 @@
     {
       "src": "nuxt.config.js",
       "use": "@nuxtjs/now-builder@0.17.1",
-      "config": {}
+      "config": {
+        "serverFiles": [
+          "./static/**/*"
+        ]
+      }
     }
   ],
   "routes": [

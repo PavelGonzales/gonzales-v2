@@ -6,7 +6,16 @@
 
     <nuxt />
 
-    <div id="transitionBlock" ref="transitionBlock" :class="$style.transitionBlock"></div>
+    <div
+      id="transitionBlock"
+      ref="transitionBlock"
+      :class="[
+        $style.transitionBlock,
+        {
+          [$style.mountedContent]: isMounted
+        }
+      ]"
+    ></div>
   </div>
 </template>
 
@@ -19,7 +28,15 @@ export default {
     Nav
   },
 
+  data() {
+    return {
+      isMounted: false
+    }
+  },
+
   mounted () {
+    this.isMounted = true;
+
     TweenLite.set(this.$refs.cursor, {
       xPercent: -50,
       yPercent: -50
@@ -50,12 +67,16 @@ export default {
 
 .transitionBlock {
   position: fixed;
-  top: 100%;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background-color: var(--black-color);
   box-shadow: 0 -20px 30px rgba(11, 11, 11, 0.7);
+}
+
+.mountedContent {
+  top: 100%;
 }
 
 /* mouse, touch pad */
