@@ -80,7 +80,7 @@ export default {
 
 .title {
   font-size: 140px;
-  font-weight: 600;
+  font-weight: var(--font-bold);
   text-align: left;
   position: relative;
   width: 100%;

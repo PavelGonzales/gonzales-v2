@@ -19,7 +19,7 @@ export default {
 <style scoped>
   .title {
     font-size: 70px;
-    font-weight: 600;
+    font-weight: var(--font-bold);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -70,7 +70,7 @@ export default {
 
 .title {
   font-size: 170px;
-  font-weight: 600;
+  font-weight: var(--font-bold);
   text-align: center;
   margin: 0;
 }
@@ -88,7 +88,7 @@ export default {
 .socialLink {
   font-size: 70px;
   color: var(--white-color);
-  font-weight: 600;
+  font-weight: var(--font-bold);
   text-decoration: none;
   width: 100%;
   position: relative;

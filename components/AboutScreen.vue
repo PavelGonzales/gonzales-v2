@@ -62,7 +62,7 @@ export default {
 
 .text {
   font-size: 72px;
-  font-weight: 600;
+  font-weight: var(--font-bold);
   text-align: left;
   position: relative;
   width: 100%;

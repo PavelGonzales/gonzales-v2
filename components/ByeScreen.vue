@@ -61,7 +61,7 @@ export default {
 }
 
 .copyright {
-  font-weight: 300;
+  font-weight: var(--font-regular);
   width: 100%;
   color: var(--white-color);
   position: relative;
@@ -87,7 +87,7 @@ export default {
 
 .contactText {
   font-size: 186px;
-  font-weight: 600;
+  font-weight: var(--font-bold);
   margin: 0;
   color: var(--white-color);
   text-decoration: none;
@@ -120,7 +120,7 @@ export default {
 
 .byeText {
   font-size: 300px;
-  font-weight: 900;
+  font-weight: var(--font-black);
   text-transform: uppercase;
   margin: 0;
 }

@@ -3,6 +3,9 @@
   --white-color: #fff;
   --light-gray-color: #999;
   --dark-gray-color: #666;
+  --font-regular: 300;
+  --font-bold: 700;
+  --font-black: 900;
 }
 
 body {

@@ -144,7 +144,7 @@ export default {
 
 .yearListItem {
   font-size: 60px;
-  font-weight: 600;
+  font-weight: var(--font-bold);
   padding: 0 15px;
   background-color: var(--black-color);
   color: var(--light-gray-color);
@@ -170,8 +170,8 @@ export default {
   justify-content: center;
   text-align: center;
   font-size: 105px;
-  font-weight: 600;
-  font-weight: 600;
+  font-weight: var(--font-bold);
+  font-weight: var(--font-bold);
   padding-top: 4%;
 }
 

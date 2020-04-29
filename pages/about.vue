@@ -65,7 +65,7 @@ export default {
 
 .title {
   font-size: 170px;
-  font-weight: 600;
+  font-weight: var(--font-bold);
   text-align: center;
   margin: 0;
 }
