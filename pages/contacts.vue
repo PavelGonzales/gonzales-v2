@@ -133,4 +133,10 @@ export default {
     font-size: 85px;
   }
 }
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 21vw;
+  }
+}
 </style>

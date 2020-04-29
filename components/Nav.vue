@@ -16,12 +16,15 @@
 </template>
 
 <script>
-import { TimelineMax } from 'gsap';
+import { TimelineMax, CSSPlugin } from 'gsap';
 
 export default {
   name: 'Nav',
 
   mounted() {
+    // eslint-disable-next-line no-unused-vars
+    const plugins = [CSSPlugin];
+
     const tlEntry = new TimelineMax({ paused: true });
     tlEntry
       .from(this.$refs.nav, 1, { opacity: 0 }, 0)

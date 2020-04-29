@@ -88,9 +88,20 @@ export default {
   margin-bottom: 1em;
 }
 
+@media (max-width: 960px) {
+  .avatar {
+    max-width: 300px;
+  }
+}
+
 @media (max-width: 640px) {
   .title {
     font-size: 100px;
+  }
+
+  .avatar {
+    margin-right: 0;
+    max-width: 100%;
   }
 }
 </style>
