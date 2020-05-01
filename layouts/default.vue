@@ -35,7 +35,9 @@ export default {
   },
 
   mounted () {
-    this.isMounted = true;
+    setTimeout(() => {
+      this.isMounted = true;
+    }, 300)
 
     TweenLite.set(this.$refs.cursor, {
       xPercent: -50,
@@ -63,6 +65,17 @@ export default {
 <style module>
 .cursor {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--white-color);
+  border: 2px solid var(--black-color);
+  z-index: 1000;
+  opacity: 0.2;
 }
 
 .transitionBlock {
@@ -81,23 +94,8 @@ export default {
 
 /* mouse, touch pad */
 @media (hover: hover) and (pointer: fine) {
-  /* * {
-    cursor: none;
-  } */
-
   .cursor {
     display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: var(--white-color);
-    border: 2px solid var(--black-color);
-    z-index: 1000;
-    opacity: 0.2;
   }
 }
 </style>
