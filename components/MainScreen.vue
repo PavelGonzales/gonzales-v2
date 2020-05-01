@@ -149,4 +149,10 @@ export default {
     bottom: 4px;
   }
 }
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 60px;
+  }
+}
 </style>

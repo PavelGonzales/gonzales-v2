@@ -103,5 +103,9 @@ export default {
     margin-right: 0;
     max-width: 100%;
   }
+
+  .paragraph {
+    font-size: 20px;
+  }
 }
 </style>

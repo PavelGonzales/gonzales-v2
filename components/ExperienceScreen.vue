@@ -177,6 +177,7 @@ export default {
 
 .companyLogo {
   width: 100%;
+  height: 100%;
 }
 
 .companyLogo.ozon {
@@ -213,12 +214,18 @@ export default {
 }
 
 @media (max-width: 640px) {
-  .timelineLine {
-    display: none;
-  }
-
   .jobStart {
     padding-top: 0;
+  }
+
+  .yearListItem {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .timelineLine {
+    display: none;
   }
 }
 </style>
