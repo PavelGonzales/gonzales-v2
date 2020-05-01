@@ -11,7 +11,7 @@
         I'm a self-taught programmer. I joined the development in 2013 and started working actively in 2015.
       </p>
       <p :class="$style.paragraph">
-        In 2013, I graduated from web-design courses. After that, I'm a little freelanced. Then there was a break for 2 years.
+        In 2013, I graduated from web-design courses. After that, I'm a little freelancing. Then there was a break for 2 years.
       </p>
       <p :class="$style.paragraph">
         In 2015, I was hired as a junior developer at Beta Digital Production, where I grew up a lot. I gained experience in designing interfaces, acquired a sense of style in websites, and learned to feel the animation.
@@ -20,12 +20,12 @@
         In 2018, I joined OZON. At that point, he was moving on to a new track. And I was involved in the move from the very beginning. I gained experience in product development of large and complicated systems. I understood how development works with a lot of dependencies and approvals.
       </p>
       <p :class="$style.paragraph">
-        At different moments of my life I tried to launch my projects. On the last project, I designed the interface, designed the base, wrote the node backend, the front on vue, and put everything on the hosting. I got an idea and experience of the whole development cycle.
+        At different moments of my life, I tried to launch my projects. On the last project, I designed the interface, designed the base, wrote the node backend, the front on Vue, and put everything on the hosting. I got an idea and experience of the whole development cycle.
       </p>
       <p :class="$style.paragraph">
         Where do I want to go?
         <br />
-        Lately I've been looking more and more at the control side. I want to think about and develop products. I plan to grow further as a technical manager.
+        Lately, I've been looking more and more at the control side. I want to think about and develop products. I plan to grow further as a technical manager.
       </p>
     </article>
   </section>
