@@ -2,39 +2,18 @@
   <div :class="$style.container">
     <h1 ref="title" :class="$style.title">Contacts</h1>
     <ul ref="socialList" :class="$style.socialList">
-      <li :class="$style.socialItem">
-        <a :class="$style.socialLink" href="mailto:develop.gonzales@gmail.com" target="_blank">
-          @gmail
-        </a>
-      </li>
-      <li :class="$style.socialItem">
-        <a :class="$style.socialLink" href="https://www.linkedin.com/in/pavelgonzales/" target="_blank">
-          LinkedIn
-        </a>
-      </li>
-      <li :class="$style.socialItem">
-        <a :class="$style.socialLink" href="https://www.facebook.com/develop.gonzales" target="_blank">
-          Facebook
-        </a>
-      </li>
-      <li :class="$style.socialItem">
-        <a :class="$style.socialLink" href="https://www.instagram.com/pavelgonzales/" target="_blank">
-          Instagram
-        </a>
-      </li>
-      <li :class="$style.socialItem">
-        <a :class="$style.socialLink" href="https://medium.com/@pavelgonzales" target="_blank">
-          Medium
-        </a>
-      </li>
-      <li :class="$style.socialItem">
-        <a :class="$style.socialLink" href="https://github.com/PavelGonzales" target="_blank">
-          GitHub
-        </a>
-      </li>
-      <li :class="$style.socialItem">
-        <a :class="$style.socialLink" href="tg://resolve?domain=pavelgonzales" target="_blank">
-          Telegram
+      <li
+        v-for="link in links"
+        :key="link.text"
+        :class="$style.socialItem"
+      >
+        <a
+          :class="$style.socialLink"
+          :href="link.href"
+          target="_blank"
+          @click="clickOnLink(link.text)"
+        >
+          {{ link.text }}
         </a>
       </li>
     </ul>
@@ -52,6 +31,41 @@ export default {
     mixinTransition
   ],
 
+  data() {
+    return {
+      links: [
+        {
+          href: 'mailto:develop.gonzales@gmail.com',
+          text: '@gmail'
+        },
+        {
+          href: 'https://www.linkedin.com/in/pavelgonzales/',
+          text: 'LinkedIn'
+        },
+        {
+          href: 'https://www.facebook.com/develop.gonzales',
+          text: 'Facebook'
+        },
+        {
+          href: 'https://www.instagram.com/pavelgonzales/',
+          text: 'Instagram'
+        },
+        {
+          href: 'https://medium.com/@pavelgonzales',
+          text: 'Medium'
+        },
+        {
+          href: 'https://github.com/PavelGonzales',
+          text: 'GitHub'
+        },
+        {
+          href: 'tg://resolve?domain=pavelgonzales',
+          text: 'Telegram'
+        }
+      ]
+    };
+  },
+
   mounted() {
     const tlEntry = new TimelineMax({ paused: true });
     tlEntry
@@ -61,6 +75,16 @@ export default {
     setTimeout(() => {
       tlEntry.play();
     }, 300)
+  },
+
+  methods: {
+    clickOnLink(name) {
+      this.$ga.event({
+        eventCategory: 'link',
+        eventAction: 'click',
+        eventLabel: name
+      })
+    }
   }
 }
 </script>

@@ -1,6 +1,12 @@
 <template>
   <footer ref="footer" :class="[$style.byeScreen, $style.container]">
-    <nuxt-link :class="$style.contactText" to="/contacts">Contact me</nuxt-link>
+    <nuxt-link
+      :class="$style.contactText"
+      to="/contacts"
+      @click.native="clickOnLink"
+    >
+      Contact me
+    </nuxt-link>
     <div :class="$style.copyright">
       <span :class="$style.copyrightInner">
         {{ new Date().getFullYear() }} &copy; Pavel Gonzales
@@ -43,6 +49,16 @@ export default {
       })
       .addTo(this.controller)
       // .addIndicators({ name: 'bye screen' })
+  },
+
+  methods: {
+    clickOnLink() {
+      this.$ga.event({
+        eventCategory: 'link',
+        eventAction: 'click',
+        eventLabel: 'Contact me'
+      })
+    }
   }
 }
 </script>
