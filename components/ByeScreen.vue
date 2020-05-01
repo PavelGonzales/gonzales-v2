@@ -171,6 +171,7 @@ export default {
 
 @media (max-width: 640px) {
   .byeScreen {
+    padding-top: 0;
     padding-bottom: 75px;
   }
 
