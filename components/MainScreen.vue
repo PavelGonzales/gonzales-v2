@@ -152,7 +152,7 @@ export default {
 
 @media (max-width: 640px) {
   .title {
-    font-size: 60px;
+    font-size: 20vw;
   }
 }
 </style>
