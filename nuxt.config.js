@@ -19,7 +19,7 @@ export default {
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
       { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
       { rel: 'manifest', href: '/site.webmanifest' },
-      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#3756ff' },
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#0b0b0b' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,700;0,900;1,700&display=swap' }
     ]
   },
@@ -48,11 +48,11 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     ['@nuxtjs/google-analytics', {
-      id: 'UA-165267805-1',
-      debug: {
-        enabled: true,
-        sendHitTask: true
-      }
+      id: 'UA-165267805-1'
+      // debug: {
+      //   enabled: true,
+      //   sendHitTask: true
+      // }
     }]
   ],
   /*
