@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.container">
-    <div :class="$style.title">
+    <div ref="title" :class="$style.title">
       Experience
     </div>
 
@@ -10,6 +10,7 @@
       :class="$style.job"
     >
       <a
+        ref="logo"
         :class="$style.jobLink"
         :href="job.companyLink"
         target="_blank"
@@ -18,16 +19,16 @@
         <span v-else :class="$style.jobTitle">{{ job.companyName }}</span>
       </a>
 
-      <div :class="$style.jobPosition">{{ job.position }}</div>
+      <div ref="jobPosition" :class="$style.jobPosition">{{ job.position }}</div>
 
-      <div :class="$style.jobDuration">
+      <div ref="jobDuration" :class="$style.jobDuration">
         {{ job.startAt }} – {{ job.endAt }} ({{ job.duration }})
       </div>
 
       <div :class="$style.row">
         <div :class="$style.col">
-          <div :class="$style.listTitle">Duties</div>
-          <ul :class="$style.list">
+          <div ref="dutiesTitle" :class="$style.listTitle">Duties</div>
+          <ul ref="dutiesList" :class="$style.list">
             <li
               v-for="duty in job.duties"
               :key="duty"
@@ -39,8 +40,8 @@
         </div>
 
         <div :class="$style.col">
-          <div :class="$style.listTitle">Achievements</div>
-          <ul :class="$style.list">
+          <div ref="achievementsTitle" :class="$style.listTitle">Achievements</div>
+          <ul ref="achievementsList" :class="$style.list">
             <li
               v-for="achievement in job.achievements"
               :key="achievement"
@@ -56,6 +57,7 @@
 </template>
 
 <script>
+import { TimelineMax } from 'gsap';
 import mixinTransition from '@/mixins/transition'
 import jobs from '@/data/jobs'
 
@@ -70,6 +72,33 @@ export default {
     return {
       jobs
     }
+  },
+
+  mounted() {
+    const tlEntry = new TimelineMax({ paused: true });
+    tlEntry
+      .from(this.$refs.title, 1, { opacity: 0, y: 30 }, 0)
+      .from(this.$refs.logo, 1, { opacity: 0, y: 30 }, 0.05)
+      .from(this.$refs.jobPosition, 1, { opacity: 0, y: 30 }, 0.1)
+      .from(this.$refs.jobDuration, 1, { opacity: 0, y: 30 }, 0.15)
+
+    if (window.innerWidth > 960) {
+      tlEntry
+        .from(this.$refs.dutiesTitle, 1, { opacity: 0, y: 30 }, 0.2)
+        .from(this.$refs.achievementsTitle, 1, { opacity: 0, y: 30 }, 0.2)
+        .staggerFrom(this.$refs.dutiesList[0].children, 1, { opacity: 0, y: 30 }, 0.05, 0.25)
+        .staggerFrom(this.$refs.achievementsList[0].children, 1, { opacity: 0, y: 30 }, 0.05, 0.25)
+    } else {
+      tlEntry
+        .from(this.$refs.dutiesTitle, 1, { opacity: 0, y: 30 }, 0.2)
+        .staggerFrom(this.$refs.dutiesList[0].children, 1, { opacity: 0, y: 30 }, 0.05, 0.25)
+        .from(this.$refs.achievementsTitle, 1, { opacity: 0, y: 30 }, 0.25 + this.$refs.dutiesList[0].children.length * 0.05)
+        .staggerFrom(this.$refs.achievementsList[0].children, 1, { opacity: 0, y: 30 }, 0.05, 0.3 + this.$refs.dutiesList[0].children.length * 0.05)
+    }
+
+    setTimeout(() => {
+      tlEntry.play();
+    }, 300)
   }
 }
 </script>
@@ -100,6 +129,7 @@ export default {
 .jobLink {
   color: var(--white-color);
   text-decoration: none;
+  display: block;
 }
 
 .jobTitle {
