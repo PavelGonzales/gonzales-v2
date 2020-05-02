@@ -6,9 +6,9 @@
     <li :class="$style.navItem">
       <nuxt-link :class="$style.navLink" to="/about">About</nuxt-link>
     </li>
-    <!-- <li :class="$style.navItem">
+    <li :class="$style.navItem">
       <nuxt-link :class="$style.navLink" to="/experience">Experience</nuxt-link>
-    </li> -->
+    </li>
     <li :class="$style.navItem">
       <nuxt-link :class="$style.navLink" to="/contacts">Contacts</nuxt-link>
     </li>
@@ -75,6 +75,12 @@ export default {
 @media (max-width: 640px) {
   .navItem {
     margin: 0 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navItem {
+    margin: 0 6px;
   }
 }
 </style>
