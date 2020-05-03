@@ -31,7 +31,7 @@ export default {
   computed: {
     meta() {
       return {
-        text: 'Hello! I\'m Pavel Gonzales. And I make great products',
+        text: 'Hi. I\'m Pavel, a Moscow based senior front-end developer and team lead',
         url: this.$route.fullPath
       }
     }

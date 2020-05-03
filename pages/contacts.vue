@@ -23,6 +23,8 @@
 <script>
 import { TimelineMax } from 'gsap';
 import mixinTransition from '@/mixins/transition'
+import { getMeta } from '@/helpers/meta'
+import jsonLd from '@/seo/about.json'
 
 export default {
   name: 'PageContacts',
@@ -66,6 +68,15 @@ export default {
     };
   },
 
+  computed: {
+    meta() {
+      return {
+        text: 'Hi. I\'m Pavel, a Moscow based senior front-end developer and team lead',
+        url: this.$route.fullPath
+      }
+    }
+  },
+
   mounted() {
     const tlEntry = new TimelineMax({ paused: true });
     tlEntry
@@ -84,6 +95,17 @@ export default {
         eventAction: 'click',
         eventLabel: name
       })
+    }
+  },
+
+  head() {
+    return {
+      title: this.meta.text,
+      meta: getMeta(this.meta),
+      script: [
+        { type: 'application/ld+json', innerHTML: JSON.stringify(jsonLd) }
+      ],
+      __dangerouslyDisableSanitizers: ['script']
     }
   }
 }

@@ -7,7 +7,7 @@
   "nationality": "Russian",
   "birthPlace" : {
     "@type": "Place",
-      "address": {
+    "address": {
       "@type": "PostalAddress",
       "addressLocality": "Moscow",
       "addressRegion": "RU",
