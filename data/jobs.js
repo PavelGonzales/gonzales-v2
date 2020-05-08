@@ -11,7 +11,7 @@ export default [
     duration: '5 months',
     achievements: [
       'I quickly completed the chatbot for another developer and figured out its code', // 'Оперативно доделал чат-бота за другим разработчиком и разобрался в его коде',
-      'I initiated TypeScript integration and did the main work, after which he transferred it to the developer in the infrastructure', // 'Инициировал интеграцию TypeScript и сделал основную работу, после чего передал разработчику в инфраструктуру',
+      'I initiated TypeScript integration and did the main work, after which I transferred it to the developer in the infrastructure', // 'Инициировал интеграцию TypeScript и сделал основную работу, после чего передал разработчику в инфраструктуру',
       'I proposed a round-robin code review and this idea was implemented', // 'Предложил круговое код ревью и эту идею реализовали',
       'I laid the foundation for the description of the documentation', // 'Положил начало описыванию документаций',
       'I started making frontend synch', // 'Начал устраивать фронтенд синки',
@@ -44,8 +44,8 @@ export default [
       'Was a mini-project on refactoring within the team (sometimes the developers leave and leave behind a "rocket sines code" or write a quick code, it was necessary to fix it)',
       'Interacted with other teams to achieve common goals',
       'Cleaned and optimized the code not only inside his team but also in the whole project',
-      'He initiated a project to develop a library of UI components and took it under his wing',
-      'He created epics/tasks, threw them on developers, in general he was engaged in management from the side of development'
+      'I initiated a project to develop a library of UI components and took it under his wing',
+      'I created epics/tasks, threw them on developers, in general I was engaged in management from the side of development'
     ],
     duties: [
       'Migration of the old site to the new framework (Vue.js)',
