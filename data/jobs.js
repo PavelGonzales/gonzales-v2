@@ -41,7 +41,7 @@ export default [
     duration: '1 year and 10 months',
     achievements: [
       'Transferred the product card completely to the new site',
-      'Was a mini-project on refactoring within the team (sometimes the developers leave and leave behind a "rocket sines code" or write a quick code, it was necessary to fix it)',
+      'Was a mini-project on refactoring within the team (sometimes the developers leave and leave behind a "rocket science code" or write a quick code, it was necessary to fix it)',
       'Interacted with other teams to achieve common goals',
       'Cleaned and optimized the code not only inside his team but also in the whole project',
       'I initiated a project to develop a library of UI components and took it under his wing',
