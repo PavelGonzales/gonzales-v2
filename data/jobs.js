@@ -10,15 +10,15 @@ export default [
     endAt: 'So far...',
     duration: '5 months',
     achievements: [
-      'I quickly completed the chatbot for another developer and figured out its code', // 'Оперативно доделал чат-бота за другим разработчиком и разобрался в его коде',
-      'I initiated TypeScript integration and did the main work, after which I transferred it to the developer in the infrastructure', // 'Инициировал интеграцию TypeScript и сделал основную работу, после чего передал разработчику в инфраструктуру',
-      'I proposed a round-robin code review and this idea was implemented', // 'Предложил круговое код ревью и эту идею реализовали',
-      'I laid the foundation for the description of the documentation', // 'Положил начало описыванию документаций',
-      'I started making frontend synch', // 'Начал устраивать фронтенд синки',
-      'On probation, I gained confidence and began to be a deputy team leader', // 'На испытательном сроке завоевал доверие и начал замещать тим лида',
-      'Set up unit tests in the project', // 'Настроил unit-тесты в проекте',
-      'I conducted over 10+ interviews in a couple of months and selected the best developers from them', // 'Провел свыше 10+ собеседований за пару месяцев и из них отобрал самых лучших разработчиков',
-      'I wrote code and process rules for front-end' // 'Написал регламенты по коду и процессам для фронтендеров'
+      'I quickly finished the chatbot with another developer and researched its code.',
+      'I initiated TypeScript integration and did the main work, after which I transferred it to the developer in the infrastructure.',
+      'I proposed a round-robin code review and this idea was implemented.',
+      'I laid the foundation for the description of the documentation.',
+      'I started making "meeting frontend".',
+      'On probation, I gained confidence and became the unofficial frontend team lead.',
+      'I set up unit tests in the project.',
+      'I conducted over 10 interviews in a couple of months and selected the best developers from them.',
+      'I wrote code and process rules for frontend.'
     ],
     duties: [
       'Develop user interface',
@@ -26,7 +26,7 @@ export default [
       'Defining Backend Contracts',
       'Interview candidates',
       'Common codebase support',
-      'Sprint planning'
+      'Sprints planning'
     ]
   },
   {
@@ -40,19 +40,19 @@ export default [
     endAt: 'January 2020',
     duration: '1 year and 10 months',
     achievements: [
-      'Transferred the product card completely to the new site',
-      'Was a mini-project on refactoring within the team (sometimes the developers leave and leave behind a "rocket science code" or write a quick code, it was necessary to fix it)',
-      'Interacted with other teams to achieve common goals',
-      'Cleaned and optimized the code not only inside his team but also in the whole project',
-      'I initiated a project to develop a library of UI components and took it under his wing',
-      'I created epics/tasks, threw them on developers, in general I was engaged in management from the side of development'
+      'I Transferred the product card completely to the new site.',
+      'I developed a mini-project on refactoring within the team (sometimes the developers quit and leave behind a "rocket science code" or write a quick code, it was necessary to fix it).',
+      'I interacted with other teams to achieve common goals.',
+      'I cleaned and optimized the code not only inside my team, but throughout the project.',
+      'I initiated a project to develop a library of UI components and took control.',
+      'I created epics/tasks, threw them on developers, in general I was engaged in management from the side of development.'
     ],
     duties: [
-      'Migration of the old site to the new framework (Vue.js)',
-      'Help other developers in the new framework',
-      'Optimization of site performance',
-      'Migration of the new site to the new architecture',
-      'Refactoring code'
+      'Migration of the old site to the new framework (Vue.js).',
+      'Helping other developers in the new framework.',
+      'Website performance optimization.',
+      'Migration of a new site to a new architecture.',
+      'Code refactoring.'
     ]
   },
   {
@@ -66,17 +66,19 @@ export default [
     endAt: 'March 2018',
     duration: '1 year and 9 months',
     achievements: [
-      'Developed and animated websites',
-      'Was developing in one person',
-      'Gained rich experience in development and architecture of applications',
-      'Learned to "feel" animation',
-      'I understood the importance of good management and the presence of a team',
-      'I got acquainted and learned to work with css gateways'
+      'I learned to work with web animations.',
+      'I learned Angular.js and Angular 2+.',
+      'I was engaged in the development of sites alone and realized that it was better to work as a team.',
+      'I have gained rich experience in application development and architecture.',
+      'I learned to “feel” animations.',
+      'I understood the importance of good management and the presence of a team.',
+      'I got acquainted and learned to work with math of CSS-Locks.',
+      'I started mentoring of junior developers.'
     ],
     duties: [
-      'Development of promotional sites with an abundance of animations',
-      'Development of web services',
-      'Optimization of performance'
+      'Development of promotional sites with an abundance of animations.',
+      'Development of web services.',
+      'Optimization of performance.'
     ]
   },
   {
@@ -88,11 +90,7 @@ export default [
     startAt: 'April 2016',
     endAt: 'June 2016',
     duration: '3 month',
-    achievements: [
-      'Web sites were set up',
-      'Called freelancers who were always out of reach and asked about the status of the work',
-      'Setting tasks for freelancers'
-    ],
+    achievements: [],
     duties: [
       'The layout of small sites',
       'Management of remote developers',
@@ -109,7 +107,6 @@ export default [
     endAt: 'January 2016',
     duration: '3 month',
     achievements: [
-      'I\'ve been making up the landings',
       'Learned JavaScript and jQuery'
     ],
     duties: [
