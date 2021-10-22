@@ -22,35 +22,10 @@
       <div ref="jobPosition" :class="$style.jobPosition">{{ job.position }}</div>
 
       <div ref="jobDuration" :class="$style.jobDuration">
-        {{ job.startAt }} – {{ job.endAt }} ({{ job.duration }})
+        {{ job.startAt }} – {{ job.endAt }} ({{ job.duration }} months)
       </div>
-
-      <div :class="$style.row">
-        <div :class="$style.col">
-          <div ref="dutiesTitle" :class="$style.listTitle">Duties</div>
-          <ul ref="dutiesList" :class="$style.list">
-            <li
-              v-for="duty in job.duties"
-              :key="duty"
-              :class="$style.listItem"
-            >
-              {{ duty }}
-            </li>
-          </ul>
-        </div>
-
-        <div :class="$style.col">
-          <div ref="achievementsTitle" :class="$style.listTitle">Achievements</div>
-          <ul ref="achievementsList" :class="$style.list">
-            <li
-              v-for="achievement in job.achievements"
-              :key="achievement"
-              :class="$style.listItem"
-            >
-              {{ achievement }}
-            </li>
-          </ul>
-        </div>
+      <div ref="progress" :class="$style.progress">
+        <div v-for="month in job.duration" :key="month" :class="$style.progressSquare" />
       </div>
     </div>
   </div>
@@ -93,19 +68,8 @@ export default {
       .from(this.$refs.jobPosition, 1, { opacity: 0, y: 30 }, 0.1)
       .from(this.$refs.jobDuration, 1, { opacity: 0, y: 30 }, 0.15)
 
-    if (window.innerWidth > 960) {
-      tlEntry
-        .from(this.$refs.dutiesTitle, 1, { opacity: 0, y: 30 }, 0.2)
-        .from(this.$refs.achievementsTitle, 1, { opacity: 0, y: 30 }, 0.2)
-        .staggerFrom(this.$refs.dutiesList[0].children, 1, { opacity: 0, y: 30 }, 0.05, 0.25)
-        .staggerFrom(this.$refs.achievementsList[0].children, 1, { opacity: 0, y: 30 }, 0.05, 0.25)
-    } else {
-      tlEntry
-        .from(this.$refs.dutiesTitle, 1, { opacity: 0, y: 30 }, 0.2)
-        .staggerFrom(this.$refs.dutiesList[0].children, 1, { opacity: 0, y: 30 }, 0.05, 0.25)
-        .from(this.$refs.achievementsTitle, 1, { opacity: 0, y: 30 }, 0.25 + this.$refs.dutiesList[0].children.length * 0.05)
-        .staggerFrom(this.$refs.achievementsList[0].children, 1, { opacity: 0, y: 30 }, 0.05, 0.3 + this.$refs.dutiesList[0].children.length * 0.05)
-    }
+    tlEntry
+      .staggerFrom(this.$refs.progress[0].children, 1, { opacity: 0, x: 30 }, 0.05, 0.25)
 
     setTimeout(() => {
       tlEntry.play();
@@ -136,6 +100,22 @@ export default {
   justify-content: center;
   width: 100%;
   margin-bottom: 50px;
+}
+
+.progress {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.progressSquare {
+  background-color: red;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  opacity: 0.8;
 }
 
 @media (max-width: 640px) {
@@ -176,38 +156,13 @@ export default {
 
 .jobLogo {
   width: 100%;
+  height: 125px;
   margin-bottom: 25px;
-}
-
-.listTitle {
-  font-size: 24px;
-  font-weight: var(--font-bold);
-}
-
-.list {
-  padding-left: 1em;
-}
-
-.listItem {
-  margin-bottom: 5px;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col {
-  width: 50%;
 }
 
 @media (max-width: 960px) {
   .jobTitle {
     font-size: 90px;
-  }
-
-  .col {
-    width: 100%;
   }
 }
 
