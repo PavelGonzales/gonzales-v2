@@ -12,7 +12,7 @@
       <a
         ref="logo"
         :class="$style.jobLink"
-        :href="job.companyLink"
+        :href="job.companyLink || null"
         target="_blank"
       >
         <img v-if="job.companyLogo" :class="$style.jobLogo" :src="require(`~/assets${job.companyLogo}`)" :alt="`${job.companyName} logo`">
@@ -68,8 +68,9 @@ export default {
       .from(this.$refs.jobPosition, 1, { opacity: 0, y: 30 }, 0.1)
       .from(this.$refs.jobDuration, 1, { opacity: 0, y: 30 }, 0.15)
 
-    tlEntry
-      .staggerFrom(this.$refs.progress[0].children, 1, { opacity: 0, x: 30 }, 0.05, 0.25)
+    jobs.forEach((_, index) => {
+      tlEntry.staggerFrom(this.$refs.progress[index].children, 1, { opacity: 0, x: 30 }, 0.05, 0.25)
+    })
 
     setTimeout(() => {
       tlEntry.play();

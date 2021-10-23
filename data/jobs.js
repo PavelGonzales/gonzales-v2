@@ -52,21 +52,12 @@ export default [
     duration: dayjs('03/01/2018').diff(dayjs('07/01/2016'), 'months') + 1
   },
   {
-    companyName: 'Webreceptor',
-    companyLink: 'https://webreceptor.ru',
-    companyLocation: 'Russia, Moscow',
-    position: 'HTML-Coder / project manager',
-    startAt: dayjs('04/01/2016').format('MMMM YYYY'),
-    endAt: dayjs('06/01/2016').format('MMMM YYYY'),
-    duration: dayjs('06/01/2016').diff(dayjs('04/01/2016'), 'months') + 1
-  },
-  {
-    companyName: 'IeTi',
+    companyName: 'Freelancer',
     companyLink: '',
-    companyLocation: 'Russia, Sevastopol',
-    position: 'HTML-Coder',
+    companyLocation: 'Russia, Moscow',
+    position: 'HTML-Coder / Project manager',
     startAt: dayjs('11/01/2015').format('MMMM YYYY'),
-    endAt: dayjs('01/01/2016').format('MMMM YYYY'),
-    duration: dayjs('01/01/2016').diff(dayjs('11/01/2015'), 'months') + 1
+    endAt: dayjs('06/01/2016').format('MMMM YYYY'),
+    duration: dayjs('06/01/2016').diff(dayjs('11/01/2015'), 'months') + 1
   }
 ]
