@@ -6,6 +6,8 @@
 
     <nuxt />
 
+    <Nav />
+
     <div
       id="transitionBlock"
       ref="transitionBlock"

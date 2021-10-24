@@ -2,7 +2,7 @@
   <div :class="$style.app">
     <MainScreen />
     <AboutScreen />
-    <ExperienceScreen />
+    <!-- <ExperienceScreen /> -->
     <ByeScreen />
   </div>
 </template>
@@ -10,7 +10,7 @@
 <script>
 import MainScreen from '@/components/MainScreen.vue'
 import AboutScreen from '@/components/AboutScreen.vue'
-import ExperienceScreen from '@/components/ExperienceScreen.vue'
+// import ExperienceScreen from '@/components/ExperienceScreen.vue'
 import ByeScreen from '@/components/ByeScreen.vue'
 import mixinTransition from '@/mixins/transition'
 import { getMeta } from '@/helpers/meta'
@@ -20,7 +20,7 @@ export default {
   components: {
     MainScreen,
     AboutScreen,
-    ExperienceScreen,
+    // ExperienceScreen,
     ByeScreen
   },
 
