@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { TimelineMax } from 'gsap';
+import gsap from 'gsap';
 import mixinTransition from '@/mixins/transition'
 import { getMeta } from '@/helpers/meta'
 import jsonLd from '@/seo/about.json'
@@ -78,10 +78,10 @@ export default {
   },
 
   mounted() {
-    const tlEntry = new TimelineMax({ paused: true });
+    const tlEntry = gsap.timeline({ paused: true });
     tlEntry
-      .from(this.$refs.title, 1, { opacity: 0, y: 30 }, 0)
-      .staggerFrom(this.$refs.socialList.children, 1, { opacity: 0, y: 30 }, 0.05, 0.05)
+      .from(this.$refs.title, { duration: 1, opacity: 0, y: 30 }, 0)
+      .from(this.$refs.socialList.children, { duration: 1, opacity: 0, y: 30, stagger: 0.05 }, 0.05)
 
     setTimeout(() => {
       tlEntry.play();

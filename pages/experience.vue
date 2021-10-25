@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { TimelineMax } from 'gsap';
+import gsap from 'gsap';
 import mixinTransition from '@/mixins/transition'
 import jobs from '@/data/jobs'
 import { getMeta } from '@/helpers/meta'
@@ -61,15 +61,15 @@ export default {
   },
 
   mounted() {
-    const tlEntry = new TimelineMax({ paused: true });
+    const tlEntry = gsap.timeline({ paused: true });
     tlEntry
-      .from(this.$refs.title, 1, { opacity: 0, y: 30 }, 0)
-      .from(this.$refs.logo, 1, { opacity: 0, y: 30 }, 0.05)
-      .from(this.$refs.jobPosition, 1, { opacity: 0, y: 30 }, 0.1)
-      .from(this.$refs.jobDuration, 1, { opacity: 0, y: 30 }, 0.15)
+      .from(this.$refs.title, { duration: 1, opacity: 0, y: 30 }, 0)
+      .from(this.$refs.logo, { duration: 1, opacity: 0, y: 30 }, 0.05)
+      .from(this.$refs.jobPosition, { duration: 1, opacity: 0, y: 30 }, 0.1)
+      .from(this.$refs.jobDuration, { duration: 1, opacity: 0, y: 30 }, 0.15)
 
     jobs.forEach((_, index) => {
-      tlEntry.staggerFrom(this.$refs.progress[index].children, 1, { opacity: 0, x: 30 }, 0.05, 0.25)
+      tlEntry.from(this.$refs.progress[index].children, { duration: 1, opacity: 0, x: 30, stagger: 0.05 }, 0.25)
     })
 
     setTimeout(() => {

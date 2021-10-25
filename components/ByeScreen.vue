@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { TimelineMax } from 'gsap';
+import gsap from 'gsap';
 
 export default {
   name: 'ByeScreen',
@@ -32,11 +32,11 @@ export default {
     const Splitting = await import('splitting')
     const result = Splitting.default({ target: this.$refs.chiao, by: 'chars' })[0]
 
-    const tlFooter = new TimelineMax({ paused: true });
+    const tlFooter = gsap.timeline({ paused: true });
 
     tlFooter
-      .from(this.$refs.footer, 1, { opacity: 0 }, 0)
-      .staggerFrom(result.chars, 0.001, { opacity: 0 }, Math.random() / 5, 0)
+      .from(this.$refs.footer, { duration: 1, opacity: 0 }, 0)
+      .from(result.chars, { duration: 0.1, opacity: 0, stagger: Math.random() / 5 }, 0)
 
     this.controller = new this.$scrollmagic.Controller();
 

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { TimelineMax, Bounce, Power2 } from 'gsap';
+import gsap from 'gsap';
 
 export default {
   name: 'MainScreen',
@@ -27,16 +27,16 @@ export default {
     const Splitting = await import('splitting')
     const result = Splitting.default({ target: this.$refs.title, by: 'chars' })[0]
 
-    const tlStart = new TimelineMax({ paused: true });
+    const tlStart = gsap.timeline({ paused: true });
     tlStart
-      .staggerFrom(result.chars, 1, { opacity: 0 }, 0.015)
-      .from(this.$refs.emoji, 0.15, { opacity: 0 }, 1)
-      .from(this.$refs.emoji, 1, { y: -100, ease: Bounce.easeOut }, 1)
-      .from(this.$refs.scroller, 1, { y: 100, ease: Power2.easeOut }, 2)
+      .from(result.chars, { duration: 1, opacity: 0, stagger: 0.015 })
+      .from(this.$refs.emoji, { duration: 0.15, opacity: 0 }, 1)
+      .from(this.$refs.emoji, { duration: 1, y: -100, ease: 'Bounce.easeOut' }, 1)
+      .from(this.$refs.scroller, { duration: 1, y: 100, ease: 'Power2.easeOut' }, 2)
 
-    const tlScrollerLeave = new TimelineMax({ paused: true });
+    const tlScrollerLeave = gsap.timeline({ paused: true });
     tlScrollerLeave
-      .to(this.$refs.scroller, 0.25, { opacity: 0, ease: Power2.easeOut }, 0)
+      .to(this.$refs.scroller, 0.25, { opacity: 0, ease: 'Power2.easeOut' }, 0)
 
     setTimeout(() => {
       tlStart.play();

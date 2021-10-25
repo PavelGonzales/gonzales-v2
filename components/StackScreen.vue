@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { TimelineMax } from 'gsap';
+import gsap from 'gsap';
 
 export default {
   name: 'StackScreen',
@@ -34,9 +34,9 @@ export default {
   mounted() {
     this.controller = new this.$scrollmagic.Controller();
 
-    const tlLogos = new TimelineMax({ paused: true });
+    const tlLogos = gsap.timeline({ paused: true });
 
-    tlLogos.staggerFrom(this.$refs.stackScreen.children, 1, { opacity: 0, y: -30 }, 0.05, 0.25)
+    tlLogos.from(this.$refs.stackScreen.children, { duration: 1, opacity: 0, y: 20, stagger: 0.05 }, 0.25)
 
     new this.$scrollmagic.Scene({
       triggerElement: this.$refs.stackScreen

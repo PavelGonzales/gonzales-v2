@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { TimelineMax } from 'gsap';
+import gsap from 'gsap';
 
 export default {
   name: 'AboutScreen',
@@ -20,14 +20,14 @@ export default {
     const Splitting = await import('splitting')
     const result = Splitting.default({ target: this.$refs.text, by: 'lines' })[0]
 
-    const tlText = new TimelineMax({ paused: true });
+    const tlText = gsap.timeline({ paused: true });
 
     result.lines.forEach((item, index) => {
       const duration = index / 15;
 
       tlText
-        .from(item, 1, { y: 30 }, duration + 0.05)
-        .from(item, 1, { opacity: 0 }, duration)
+        .from(item, { duration: 1, y: 30 }, duration + 0.05)
+        .from(item, { duration: 1, opacity: 0 }, duration)
     });
 
     this.controller = new this.$scrollmagic.Controller();

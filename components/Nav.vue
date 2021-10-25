@@ -16,19 +16,16 @@
 </template>
 
 <script>
-import { TimelineMax, CSSPlugin } from 'gsap';
+import gsap from 'gsap';
 
 export default {
   name: 'Nav',
 
   mounted() {
-    // eslint-disable-next-line no-unused-vars
-    const plugins = [CSSPlugin];
-
-    const tlEntry = new TimelineMax({ paused: true });
+    const tlEntry = gsap.timeline({ paused: true });
     tlEntry
-      .from(this.$refs.nav, 1, { opacity: 0 }, 0)
-      .staggerFrom(this.$refs.nav.children, 0.3, { scaleY: 0 }, 0.05, 0)
+      .from(this.$refs.nav, { duration: 1, opacity: 0 }, 0)
+      .from(this.$refs.nav.children, { duration: 0.3, scaleY: 0, stagger: 0.05 }, 0)
 
     setTimeout(() => {
       tlEntry.play();
