@@ -2,6 +2,7 @@
   <div :class="$style.container">
     <div ref="title" :class="$style.title">
       Experience
+      <div :class="$style.titleMeta">{{ totalExp }}+ years</div>
     </div>
 
     <div
@@ -57,6 +58,16 @@ export default {
         text: 'Hi. I\'m Pavel, a Moscow based senior front-end developer and team lead',
         url: this.$route.fullPath
       }
+    },
+
+    totalExp() {
+      const totalMonths = jobs.reduce((acc, job) => {
+        acc += job.duration;
+
+        return acc;
+      }, 0);
+
+      return Math.ceil(totalMonths / 12);
     }
   },
 
@@ -99,8 +110,14 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100%;
   margin-bottom: 50px;
+}
+
+.titleMeta {
+  font-size: 0.3em;
+  color: red;
 }
 
 .progress {

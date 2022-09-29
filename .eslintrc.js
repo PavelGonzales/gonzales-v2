@@ -17,6 +17,8 @@ module.exports = {
     'semi': 0,
     'import/no-webpack-loader-syntax': 0,
     'space-before-function-paren': 0,
-    'vue/html-self-closing': 0
+    'vue/html-self-closing': 0,
+    'import/no-named-as-default': 0,
+    'vue/comment-directive': 0
   }
 }

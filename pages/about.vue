@@ -2,8 +2,8 @@
   <section :class="[$style.root, $style.container]">
     <h1 ref="title" :class="$style.title">About</h1>
     <picture ref="avatar" :class="$style.avatar">
-      <source srcset="./../assets/ava_3.jpeg" type="image/jpeg" :class="$style.avatarSource" />
-      <img src="./../assets/ava_3.jpeg" alt="Pavel Gonzales Avatar" :class="$style.avatarSource" />
+      <source srcset="./../assets/ava_5.jpg" type="image/jpeg" :class="$style.avatarSource" />
+      <img src="./../assets/ava_5.jpg" alt="Pavel Gonzales Avatar" :class="$style.avatarSource" />
     </picture>
 
     <article ref="article">
@@ -93,7 +93,7 @@ export default {
 }
 
 .avatar {
-  max-width: 500px;
+  max-width: 400px;
   display: block;
   margin: auto;
   float: left;
