@@ -42,6 +42,6 @@
     "husky": "^4.0.0",
     "imports-loader": "^0.8.0",
     "lint-staged": "^10.0.0",
-    "stylelint": "^10.1.0"
+    "stylelint": "^14.13.0"
   }
 }
